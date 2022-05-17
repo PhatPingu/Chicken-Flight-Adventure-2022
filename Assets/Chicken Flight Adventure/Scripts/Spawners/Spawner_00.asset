@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca7a6cd20cc8151498eb23b48923c78c, type: 3}
+  m_Name: Spawner_00
+  m_EditorClassIdentifier: 
+  _platformObject:
+  - {fileID: 2374185414059251132, guid: 24d23fd3f034d904da9b3be0e6c830fe, type: 3}
+  - {fileID: 382245077275695495, guid: 402c9a73807818c479f8a1fc26482e5d, type: 3}
+  spawner_enabled: 1
+  type_01: 0
+  type_02: 1
+  offsetStartLocation: {x: -805, y: 123.24, z: 276.82}
+  line_01:
+  - xPosMin: 10
+    xPosMax: 20
+    yPos: 0
+    yPosOffset: 5
+    zPosMin: -10
+    zPosMax: 10
+  - xPosMin: 20
+    xPosMax: 30
+    yPos: 0
+    yPosOffset: 10
+    zPosMin: -10
+    zPosMax: 10
+  - xPosMin: 30
+    xPosMax: 40
+    yPos: 0
+    yPosOffset: 15
+    zPosMin: -10
+    zPosMax: 10
+  - xPosMin: 40
+    xPosMax: 50
+    yPos: 0
+    yPosOffset: 20
+    zPosMin: -10
+    zPosMax: 10
+  - xPosMin: 50
+    xPosMax: 60
+    yPos: 0
+    yPosOffset: 25
+    zPosMin: -10
+    zPosMax: 10
+  - xPosMin: 60
+    xPosMax: 70
+    yPos: 0
+    yPosOffset: 30
+    zPosMin: -10
+    zPosMax: 10
+  - xPosMin: 70
+    xPosMax: 80
+    yPos: 0
+    yPosOffset: 35
+    zPosMin: -10
+    zPosMax: 10
+  - xPosMin: 80
+    xPosMax: 90
+    yPos: 0
+    yPosOffset: 40
+    zPosMin: -10
+    zPosMax: 10
+  line_02: []
+  line_03: []
+  line_04: []

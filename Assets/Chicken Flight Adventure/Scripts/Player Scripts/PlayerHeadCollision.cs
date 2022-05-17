@@ -1,0 +1,18 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PlayerHeadCollision : MonoBehaviour
+{
+    [SerializeField] PlayerAnimationControl _playerAnimationControl;
+    [SerializeField] PlayerSoundControl _playerSoundControl;
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Platform")
+        {
+            _playerAnimationControl.CallHeadCollision_Animation();
+            _playerSoundControl.PlaySFX_HeadBang();
+        }
+    }
+}
