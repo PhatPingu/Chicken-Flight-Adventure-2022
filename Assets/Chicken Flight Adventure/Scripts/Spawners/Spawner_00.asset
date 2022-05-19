@@ -15,7 +15,7 @@ MonoBehaviour:
   _platformObject:
   - {fileID: 2374185414059251132, guid: 24d23fd3f034d904da9b3be0e6c830fe, type: 3}
   - {fileID: 382245077275695495, guid: 402c9a73807818c479f8a1fc26482e5d, type: 3}
-  spawner_enabled: 0
+  spawner_enabled: 1
   type_01: 0
   type_02: 1
   offsetStartLocation: {x: -805, y: 123.24, z: 276.82}
