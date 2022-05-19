@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GizmoGenerato : MonoBehaviour
+public class GizmoGenerator : MonoBehaviour
 {
     [SerializeField] LevelSpawnsManager _levelSpawnsManager;
     [SerializeField] Vector3 position;
