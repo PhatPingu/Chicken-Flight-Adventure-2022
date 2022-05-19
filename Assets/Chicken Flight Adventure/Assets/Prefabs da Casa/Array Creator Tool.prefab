@@ -204,199 +204,267 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55988f946dc9076408fb57d47c7586cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  variation_line_01:
+  - xVariation: 3
+    zVariation: 2
+  - xVariation: 0
+    zVariation: 0
+  - xVariation: 0
+    zVariation: 0
+  - xVariation: 0
+    zVariation: 0
+  - xVariation: 0
+    zVariation: 0
+  - xVariation: 0
+    zVariation: 0
+  - xVariation: 0
+    zVariation: 0
+  - xVariation: 0
+    zVariation: 0
+  variation_line_02:
+  - xVariation: 0
+    zVariation: 0
+  - xVariation: 0
+    zVariation: 0
+  - xVariation: 0
+    zVariation: 0
+  - xVariation: 0
+    zVariation: 0
+  - xVariation: 0
+    zVariation: 0
+  - xVariation: 0
+    zVariation: 0
+  - xVariation: 0
+    zVariation: 0
+  - xVariation: 0
+    zVariation: 0
+  variation_line_03:
+  - xVariation: 0
+    zVariation: 0
+  - xVariation: 0
+    zVariation: 0
+  - xVariation: 0
+    zVariation: 0
+  - xVariation: 0
+    zVariation: 0
+  - xVariation: 0
+    zVariation: 0
+  - xVariation: 0
+    zVariation: 0
+  - xVariation: 0
+    zVariation: 0
+  - xVariation: 0
+    zVariation: 0
+  variation_line_04:
+  - xVariation: 0
+    zVariation: 0
+  - xVariation: 0
+    zVariation: 0
+  - xVariation: 0
+    zVariation: 0
+  - xVariation: 0
+    zVariation: 0
+  - xVariation: 0
+    zVariation: 0
+  - xVariation: 0
+    zVariation: 0
+  - xVariation: 0
+    zVariation: 0
+  - xVariation: 0
+    zVariation: 0
   line_01:
+  - xPosMin: -3
+    xPosMax: 3
+    yPos: 0
+    yPosOffset: 0
+    zPosMin: -2
+    zPosMax: 2
   - xPosMin: 0
     xPosMax: 0
-    yPos: 0
+    yPos: 2
     yPosOffset: 0
     zPosMin: 0
     zPosMax: 0
   - xPosMin: 0
     xPosMax: 0
-    yPos: 0
+    yPos: 4
     yPosOffset: 0
     zPosMin: 0
     zPosMax: 0
   - xPosMin: 0
     xPosMax: 0
-    yPos: 0
+    yPos: 6
     yPosOffset: 0
     zPosMin: 0
     zPosMax: 0
   - xPosMin: 0
     xPosMax: 0
-    yPos: 0
+    yPos: 8
     yPosOffset: 0
     zPosMin: 0
     zPosMax: 0
   - xPosMin: 0
     xPosMax: 0
-    yPos: 0
+    yPos: 10
     yPosOffset: 0
     zPosMin: 0
     zPosMax: 0
   - xPosMin: 0
     xPosMax: 0
-    yPos: 0
+    yPos: 12
     yPosOffset: 0
     zPosMin: 0
     zPosMax: 0
   - xPosMin: 0
     xPosMax: 0
-    yPos: 0
-    yPosOffset: 0
-    zPosMin: 0
-    zPosMax: 0
-  - xPosMin: 0
-    xPosMax: 0
-    yPos: 0
+    yPos: 14
     yPosOffset: 0
     zPosMin: 0
     zPosMax: 0
   line_02:
-  - xPosMin: 0
-    xPosMax: 0
+  - xPosMin: 5
+    xPosMax: 5
     yPos: 0
     yPosOffset: 0
     zPosMin: 0
     zPosMax: 0
-  - xPosMin: 0
-    xPosMax: 0
-    yPos: 0
+  - xPosMin: 5
+    xPosMax: 5
+    yPos: 2
     yPosOffset: 0
     zPosMin: 0
     zPosMax: 0
-  - xPosMin: 0
-    xPosMax: 0
-    yPos: 0
+  - xPosMin: 5
+    xPosMax: 5
+    yPos: 4
     yPosOffset: 0
     zPosMin: 0
     zPosMax: 0
-  - xPosMin: 0
-    xPosMax: 0
-    yPos: 0
+  - xPosMin: 5
+    xPosMax: 5
+    yPos: 6
     yPosOffset: 0
     zPosMin: 0
     zPosMax: 0
-  - xPosMin: 0
-    xPosMax: 0
-    yPos: 0
+  - xPosMin: 5
+    xPosMax: 5
+    yPos: 8
     yPosOffset: 0
     zPosMin: 0
     zPosMax: 0
-  - xPosMin: 0
-    xPosMax: 0
-    yPos: 0
+  - xPosMin: 5
+    xPosMax: 5
+    yPos: 10
     yPosOffset: 0
     zPosMin: 0
     zPosMax: 0
-  - xPosMin: 0
-    xPosMax: 0
-    yPos: 0
+  - xPosMin: 5
+    xPosMax: 5
+    yPos: 12
     yPosOffset: 0
     zPosMin: 0
     zPosMax: 0
-  - xPosMin: 0
-    xPosMax: 0
-    yPos: 0
+  - xPosMin: 5
+    xPosMax: 5
+    yPos: 14
     yPosOffset: 0
     zPosMin: 0
     zPosMax: 0
   line_03:
-  - xPosMin: 0
-    xPosMax: 0
+  - xPosMin: 10
+    xPosMax: 10
     yPos: 0
     yPosOffset: 0
     zPosMin: 0
     zPosMax: 0
-  - xPosMin: 0
-    xPosMax: 0
-    yPos: 0
+  - xPosMin: 10
+    xPosMax: 10
+    yPos: 2
     yPosOffset: 0
     zPosMin: 0
     zPosMax: 0
-  - xPosMin: 0
-    xPosMax: 0
-    yPos: 0
+  - xPosMin: 10
+    xPosMax: 10
+    yPos: 4
     yPosOffset: 0
     zPosMin: 0
     zPosMax: 0
-  - xPosMin: 0
-    xPosMax: 0
-    yPos: 0
+  - xPosMin: 10
+    xPosMax: 10
+    yPos: 6
     yPosOffset: 0
     zPosMin: 0
     zPosMax: 0
-  - xPosMin: 0
-    xPosMax: 0
-    yPos: 0
+  - xPosMin: 10
+    xPosMax: 10
+    yPos: 8
     yPosOffset: 0
     zPosMin: 0
     zPosMax: 0
-  - xPosMin: 0
-    xPosMax: 0
-    yPos: 0
+  - xPosMin: 10
+    xPosMax: 10
+    yPos: 10
     yPosOffset: 0
     zPosMin: 0
     zPosMax: 0
-  - xPosMin: 0
-    xPosMax: 0
-    yPos: 0
+  - xPosMin: 10
+    xPosMax: 10
+    yPos: 12
     yPosOffset: 0
     zPosMin: 0
     zPosMax: 0
-  - xPosMin: 0
-    xPosMax: 0
-    yPos: 0
+  - xPosMin: 10
+    xPosMax: 10
+    yPos: 14
     yPosOffset: 0
     zPosMin: 0
     zPosMax: 0
   line_04:
-  - xPosMin: 0
-    xPosMax: 0
+  - xPosMin: 15
+    xPosMax: 15
     yPos: 0
     yPosOffset: 0
     zPosMin: 0
     zPosMax: 0
-  - xPosMin: 0
-    xPosMax: 0
-    yPos: 0
+  - xPosMin: 15
+    xPosMax: 15
+    yPos: 2
     yPosOffset: 0
     zPosMin: 0
     zPosMax: 0
-  - xPosMin: 0
-    xPosMax: 0
-    yPos: 0
+  - xPosMin: 15
+    xPosMax: 15
+    yPos: 4
     yPosOffset: 0
     zPosMin: 0
     zPosMax: 0
-  - xPosMin: 0
-    xPosMax: 0
-    yPos: 0
+  - xPosMin: 15
+    xPosMax: 15
+    yPos: 6
     yPosOffset: 0
     zPosMin: 0
     zPosMax: 0
-  - xPosMin: 0
-    xPosMax: 0
-    yPos: 0
+  - xPosMin: 15
+    xPosMax: 15
+    yPos: 8
     yPosOffset: 0
     zPosMin: 0
     zPosMax: 0
-  - xPosMin: 0
-    xPosMax: 0
-    yPos: 0
+  - xPosMin: 15
+    xPosMax: 15
+    yPos: 10
     yPosOffset: 0
     zPosMin: 0
     zPosMax: 0
-  - xPosMin: 0
-    xPosMax: 0
-    yPos: 0
+  - xPosMin: 15
+    xPosMax: 15
+    yPos: 12
     yPosOffset: 0
     zPosMin: 0
     zPosMax: 0
-  - xPosMin: 0
-    xPosMax: 0
-    yPos: 0
+  - xPosMin: 15
+    xPosMax: 15
+    yPos: 14
     yPosOffset: 0
     zPosMin: 0
     zPosMax: 0

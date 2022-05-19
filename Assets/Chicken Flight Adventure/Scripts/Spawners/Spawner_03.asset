@@ -20,18 +20,18 @@ MonoBehaviour:
   type_02: 1
   offsetStartLocation: {x: 0, y: 0, z: 0}
   line_01:
-  - xPosMin: 310
-    xPosMax: 335
-    yPos: 110
+  - xPosMin: -12
+    xPosMax: -6
+    yPos: 11
     yPosOffset: 0
-    zPosMin: 5
-    zPosMax: 15
-  - xPosMin: 285
-    xPosMax: 310
-    yPos: 110
-    yPosOffset: -10
-    zPosMin: 5
-    zPosMax: 15
+    zPosMin: -11
+    zPosMax: -7
+  - xPosMin: 0
+    xPosMax: 0
+    yPos: 2
+    yPosOffset: 0
+    zPosMin: 0
+    zPosMax: 0
   - xPosMin: 260
     xPosMax: 285
     yPos: 110
