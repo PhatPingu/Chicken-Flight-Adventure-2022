@@ -177,13 +177,6 @@ public class SpawnDataStruct : ScriptableObject
         GameObject newPlatform = Instantiate(_platformObject[random], thisLocation, Quaternion.identity);
 
         SetPlataform_Type(newPlatform); //Type determines if platform destroysOnTimer   
-        MakeGizmo();
-
-        void MakeGizmo()
-        {
-            Gizmos.color = Color.blue;
-            Gizmos.DrawCube(thisLocation, Vector3.one);
-        }
     }   
 
     void SetPlataform_Type(GameObject whatPlatform)
