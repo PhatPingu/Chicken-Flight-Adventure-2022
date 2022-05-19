@@ -543,8 +543,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _levelSpawnsManager: {fileID: 0}
-  material_topPlatform: {fileID: 0}
-  material_bottomPlatform: {fileID: 0}
+  material_topPlatform: {fileID: 1908922472375900394, guid: 0431a35cc46c7194980dca73eb5c60c9, type: 3}
+  material_bottomPlatform: {fileID: 3805879448417164763, guid: 0431a35cc46c7194980dca73eb5c60c9, type: 3}
   doDestroyOnTimer: 0
   destroyTimer: 35
   minBlockSize: 1.5
