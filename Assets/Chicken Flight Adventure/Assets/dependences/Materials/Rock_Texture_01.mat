@@ -193,6 +193,7 @@ Material:
     - _Anisotropy: 0
     - _Blend: 0
     - _BlendMode: 0
+    - _BlendModePreserveSpecular: 1
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
@@ -229,6 +230,7 @@ Material:
     - _DoubleSidedNormalMode: 1
     - _Drag: 1
     - _DstBlend: 0
+    - _DstBlendAlpha: 0
     - _EmissiveColorMode: 1
     - _EnableBlendModePreserveSpecularLighting: 1
     - _EnableFogOnTransparent: 1
@@ -285,6 +287,7 @@ Material:
     - _SpecularAAThreshold: 0.2
     - _SpecularHighlights: 1
     - _SrcBlend: 1
+    - _SrcBlendAlpha: 1
     - _StencilRef: 2
     - _StencilRefMV: 128
     - _StencilWriteMask: 7

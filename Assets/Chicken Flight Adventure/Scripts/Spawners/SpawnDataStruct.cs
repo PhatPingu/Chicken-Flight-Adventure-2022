@@ -21,12 +21,12 @@ public class SpawnDataStruct : ScriptableObject
     [SerializeField] private bool type_01;
     [SerializeField] private bool type_02;
 
-    [SerializeField] private Vector3 offsetStartLocation;
+    [SerializeField] public Vector3 offsetStartLocation;
 
-    [SerializeField] private BlockLocationCoord[] line_01;
-    [SerializeField] private BlockLocationCoord[] line_02;
-    [SerializeField] private BlockLocationCoord[] line_03;
-    [SerializeField] private BlockLocationCoord[] line_04;
+    [SerializeField] public BlockLocationCoord[] line_01;
+    [SerializeField] public BlockLocationCoord[] line_02;
+    [SerializeField] public BlockLocationCoord[] line_03;
+    [SerializeField] public BlockLocationCoord[] line_04;
 
     public void Initialization()
     {
@@ -35,6 +35,7 @@ public class SpawnDataStruct : ScriptableObject
 
     public void CallBlockLines()
     {
+        
         if(spawner_enabled)
         {
             if(type_01)
