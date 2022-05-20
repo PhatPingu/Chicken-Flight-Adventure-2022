@@ -18,7 +18,7 @@ MonoBehaviour:
   spawner_enabled: 0
   type_01: 1
   type_02: 0
-  offsetStartLocation: {x: -819.51, y: 117.06, z: 312.94}
+  offsetStartLocation: {x: 0, y: 0, z: 0}
   line_01:
   - xPosMin: -10.5
     xPosMax: -3.5
