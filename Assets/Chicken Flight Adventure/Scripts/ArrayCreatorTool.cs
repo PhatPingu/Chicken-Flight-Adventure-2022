@@ -29,18 +29,18 @@ public class ArrayCreatorTool : MonoBehaviour
     [SerializeField] private Variation[] variation_line_04;
 
 
-    [Header("### Coords ###")]
-    [SerializeField] private ArrayTool[] line_01;
-    [SerializeField] private ArrayTool[] line_02;
-    [SerializeField] private ArrayTool[] line_03;
-    [SerializeField] private ArrayTool[] line_04;
+    //"### Coords ###"
+    private ArrayTool[] line_01;
+    private ArrayTool[] line_02;
+    private ArrayTool[] line_03;
+    private ArrayTool[] line_04;
 
 
-    [Header("### Objects ###")]
-    [SerializeField] private GameObject[] object_line_01;
-    [SerializeField] private GameObject[] object_line_02;
-    [SerializeField] private GameObject[] object_line_03;
-    [SerializeField] private GameObject[] object_line_04;
+    //"### Objects ###"
+    private GameObject[] object_line_01;
+    private GameObject[] object_line_02;
+    private GameObject[] object_line_03;
+    private GameObject[] object_line_04;
 
     void Update()
     {
@@ -120,8 +120,6 @@ public class ArrayCreatorTool : MonoBehaviour
         SpawnDataStruct Spawner_new = ScriptableObject.CreateInstance<SpawnDataStruct>();
         string path = "Assets/Chicken Flight Adventure/Scripts/Spawners/Spawner_new.asset";
         AssetDatabase.CreateAsset(Spawner_new, path);
-        AssetDatabase.SaveAssets();
-        AssetDatabase.Refresh();
         EditorUtility.FocusProjectWindow();
         Selection.activeObject = Spawner_new;
 
@@ -169,6 +167,9 @@ public class ArrayCreatorTool : MonoBehaviour
             Spawner_new.line_04[i].zPosMin      = line_04[i].zPosMin;
             Spawner_new.line_04[i].zPosMax      = line_04[i].zPosMax;
         }
+        
+        AssetDatabase.SaveAssets();
+        AssetDatabase.Refresh();
     }
 
 }
