@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
+using UnityEditor.SceneManagement;
 
 [System.Serializable]
 public struct ArrayTool
@@ -16,7 +18,6 @@ public struct Variation
     public float xVariation;
     public float zVariation;
 }
-
 
 [ExecuteInEditMode]
 public class ArrayCreatorTool : MonoBehaviour
@@ -120,10 +121,50 @@ public class ArrayCreatorTool : MonoBehaviour
 
     }
 
-    [ContextMenu("Create Spawner")]
+    /*[ContextMenu("Create Spawner")]
     void CreateSpawner()
     {
-        Debug.Log("Creating Spawner");
-    }
+        SpawnDataStruct Spawner_new = EditorApplication.ExecuteMenuItem()
+        
+        for (int i = 0; i < line_01.Length; i++)
+        {
+            Spawner_new.line_01[i].xPosMin      = line_01[i].xPosMin;
+            Spawner_new.line_01[i].xPosMax      = line_01[i].xPosMax;
+            Spawner_new.line_01[i].yPos         = line_01[i].yPos;
+            Spawner_new.line_01[i].yPosOffset   = line_01[i].yPosOffset;
+            Spawner_new.line_01[i].zPosMin      = line_01[i].zPosMin;
+            Spawner_new.line_01[i].zPosMax      = line_01[i].zPosMax;
+        }
+
+        for (int i = 0; i < line_02.Length; i++)
+        {
+            Spawner_new.line_02[i].xPosMin      = line_02[i].xPosMin;
+            Spawner_new.line_02[i].xPosMax      = line_02[i].xPosMax;
+            Spawner_new.line_02[i].yPos         = line_02[i].yPos;
+            Spawner_new.line_02[i].yPosOffset   = line_02[i].yPosOffset;
+            Spawner_new.line_02[i].zPosMin      = line_02[i].zPosMin;
+            Spawner_new.line_02[i].zPosMax      = line_02[i].zPosMax;
+        }
+
+        for (int i = 0; i < line_03.Length; i++)
+        {
+            Spawner_new.line_03[i].xPosMin      = line_03[i].xPosMin;
+            Spawner_new.line_03[i].xPosMax      = line_03[i].xPosMax;
+            Spawner_new.line_03[i].yPos         = line_03[i].yPos;
+            Spawner_new.line_03[i].yPosOffset   = line_03[i].yPosOffset;
+            Spawner_new.line_03[i].zPosMin      = line_03[i].zPosMin;
+            Spawner_new.line_03[i].zPosMax      = line_03[i].zPosMax;
+        }
+
+        for (int i = 0; i < line_04.Length; i++)
+        {
+            Spawner_new.line_04[i].xPosMin      = line_04[i].xPosMin;
+            Spawner_new.line_04[i].xPosMax      = line_04[i].xPosMax;
+            Spawner_new.line_04[i].yPos         = line_04[i].yPos;
+            Spawner_new.line_04[i].yPosOffset   = line_04[i].yPosOffset;
+            Spawner_new.line_04[i].zPosMin      = line_04[i].zPosMin;
+            Spawner_new.line_04[i].zPosMax      = line_04[i].zPosMax;
+        }
+    }*/
 
 }
