@@ -22,12 +22,6 @@ public struct Variation
 [ExecuteInEditMode]
 public class ArrayCreatorTool : MonoBehaviour
 {
-    [ContextMenu("Do Something")]
-    void DoSomething()
-    {
-        Debug.Log("Perform operation");
-    }
-    
     [Header("### Variation ###")]
     [SerializeField] private Variation[] variation_line_01;
     [SerializeField] private Variation[] variation_line_02;
@@ -121,8 +115,7 @@ public class ArrayCreatorTool : MonoBehaviour
 
     }
 
-    [ContextMenu("Create Spawner")]
-    void CreateSpawner()
+    public void CreateSpawner()
     {
         SpawnDataStruct Spawner_new = ScriptableObject.CreateInstance<SpawnDataStruct>();
         string path = "Assets/Chicken Flight Adventure/Scripts/Spawners/Spawner_new.asset";
