@@ -121,11 +121,22 @@ public class ArrayCreatorTool : MonoBehaviour
 
     }
 
-    /*[ContextMenu("Create Spawner")]
+    [ContextMenu("Create Spawner")]
     void CreateSpawner()
     {
-        SpawnDataStruct Spawner_new = EditorApplication.ExecuteMenuItem()
-        
+        SpawnDataStruct Spawner_new = ScriptableObject.CreateInstance<SpawnDataStruct>();
+        string path = "Assets/Chicken Flight Adventure/Scripts/Spawners/Spawner_new.asset";
+        AssetDatabase.CreateAsset(Spawner_new, path);
+        AssetDatabase.SaveAssets();
+        AssetDatabase.Refresh();
+        EditorUtility.FocusProjectWindow();
+        Selection.activeObject = Spawner_new;
+
+        Spawner_new.line_01 = new BlockLocationCoord[line_01.Length];
+        Spawner_new.line_02 = new BlockLocationCoord[line_02.Length];
+        Spawner_new.line_03 = new BlockLocationCoord[line_03.Length];
+        Spawner_new.line_04 = new BlockLocationCoord[line_04.Length];
+
         for (int i = 0; i < line_01.Length; i++)
         {
             Spawner_new.line_01[i].xPosMin      = line_01[i].xPosMin;
@@ -165,6 +176,6 @@ public class ArrayCreatorTool : MonoBehaviour
             Spawner_new.line_04[i].zPosMin      = line_04[i].zPosMin;
             Spawner_new.line_04[i].zPosMax      = line_04[i].zPosMax;
         }
-    }*/
+    }
 
 }
