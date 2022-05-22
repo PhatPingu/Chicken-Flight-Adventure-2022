@@ -42,6 +42,14 @@ public class ArrayCreatorTool : MonoBehaviour
     private GameObject[] object_line_03;
     private GameObject[] object_line_04;
 
+    void Start()
+    {
+    object_line_01 = new GameObject[8];
+    object_line_02 = new GameObject[8];
+    object_line_03 = new GameObject[8];
+    object_line_04 = new GameObject[8];
+    }
+
     void Update()
     {
         UpdateObjectList();
@@ -122,6 +130,8 @@ public class ArrayCreatorTool : MonoBehaviour
         AssetDatabase.CreateAsset(Spawner_new, path);
         EditorUtility.FocusProjectWindow();
         Selection.activeObject = Spawner_new;
+
+        Spawner_new.type_02 = true;
 
         Spawner_new.line_01 = new BlockLocationCoord[line_01.Length];
         Spawner_new.line_02 = new BlockLocationCoord[line_02.Length];

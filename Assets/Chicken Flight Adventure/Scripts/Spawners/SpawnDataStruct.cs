@@ -18,8 +18,8 @@ public class SpawnDataStruct : ScriptableObject
 
     [SerializeField] public bool spawner_enabled;
 
-    [SerializeField] private bool type_01;
-    [SerializeField] private bool type_02;
+    [SerializeField] public bool type_01;
+    [SerializeField] public bool type_02;
 
     [SerializeField] public Vector3 offsetStartLocation;
 
