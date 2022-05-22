@@ -17,7 +17,7 @@ public class CameraBehaviour : MonoBehaviour
 
     void Update()
     {
-        if(_playerFootCollision.playerIsGrounded)
+        /*if(_playerFootCollision.playerIsGrounded)
         {   //This is changing the values of BottomRig (Height, Radius)
             camera_01.m_Orbits[2] = new CinemachineFreeLook.Orbit(0f,16f);
             camera_02.m_Orbits[2] = new CinemachineFreeLook.Orbit(0f,16f);
@@ -26,7 +26,7 @@ public class CameraBehaviour : MonoBehaviour
         {
             camera_01.m_Orbits[2] = new CinemachineFreeLook.Orbit(-4f,12f);
             camera_02.m_Orbits[2] = new CinemachineFreeLook.Orbit(-4f,12f);
-        }
+        }*/
     }
 
     public void ChangeZoom(bool choice, float zoomInDistance, float zoomInSpeed, float zoomOutSpeed) 

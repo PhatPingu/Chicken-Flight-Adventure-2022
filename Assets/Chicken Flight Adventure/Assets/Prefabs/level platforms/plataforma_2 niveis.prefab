@@ -128,8 +128,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4050051946438640154}
   - {fileID: 7491977848808961125}
+  - {fileID: 4050051946438640154}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -162,8 +162,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _levelSpawnsManager: {fileID: 0}
-  material_topPlatform: {fileID: -3623359735736499496, guid: 31def8f0f0c308d46b38fdb21d049a44, type: 3}
-  material_bottomPlatform: {fileID: 5195559587037054103, guid: 31def8f0f0c308d46b38fdb21d049a44, type: 3}
+  material_topPlatform: {fileID: 3165567842687865809}
+  material_bottomPlatform: {fileID: 3333564499500094878}
   doDestroyOnTimer: 0
   destroyTimer: 35
   minBlockSize: 1.5
