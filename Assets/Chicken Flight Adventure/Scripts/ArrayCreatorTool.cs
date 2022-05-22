@@ -48,6 +48,11 @@ public class ArrayCreatorTool : MonoBehaviour
     object_line_02 = new GameObject[8];
     object_line_03 = new GameObject[8];
     object_line_04 = new GameObject[8];
+
+    line_01 = new ArrayTool[8];
+    line_02 = new ArrayTool[8];
+    line_03 = new ArrayTool[8];
+    line_04 = new ArrayTool[8];
     }
 
     void Update()
