@@ -46,7 +46,6 @@ public class PlayerBehaviour : MonoBehaviour
     public bool do_EndDiveBoost;
     private bool inputDive;
     private bool isDiving;
-    private bool isGrounded;
 
     private PlayerInput playerInput;
     private InputAction jumpAction;                               // Considering Discontinuation
@@ -77,7 +76,6 @@ public class PlayerBehaviour : MonoBehaviour
         goodJumpTimer = goodJumpTimer_Reset;
         averageJumpTimer = averageJumpTimer_Reset;
         weakJumpTimer = weakJumpTimer_Reset;
-        isGrounded = _playerFootCollision.playerIsGrounded;
     }
 
     public void Boost()
@@ -197,7 +195,7 @@ public class PlayerBehaviour : MonoBehaviour
             _playerAnimationControl.Dive_Animation(false);
         }
 
-        if(!inputDive && isDiving && !isGrounded)
+        if(!inputDive && isDiving)
         {
             if(do_EndDiveBoost) 
             {
@@ -206,7 +204,7 @@ public class PlayerBehaviour : MonoBehaviour
             }
             isDiving = false;
         }
-        else if(!inputDive && isDiving && isGrounded)
+        else if(!inputDive && isDiving)
         {
             if(do_EndDiveBoost) 
             {
@@ -274,7 +272,7 @@ public class PlayerBehaviour : MonoBehaviour
     float y_StartVelocity;
     void PerformDive(InputAction.CallbackContext context)
     {
-        if(!inputDive && !isGrounded) //Turn on Dive
+        if(!inputDive && !_playerFootCollision.playerIsGrounded) //Turn on Dive
         {
             Reset_EndDiveBoost();
             inputDive = true;    

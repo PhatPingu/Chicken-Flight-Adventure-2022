@@ -3246,6 +3246,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: Dive
     m_EventTreshold: 0
+  - m_ConditionMode: 1
+    m_ConditionEvent: Fly
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -7084159987515181376}
   m_Solo: 0
