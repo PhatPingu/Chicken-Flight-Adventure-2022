@@ -13,6 +13,7 @@ public class PlayerAnimationControl : MonoBehaviour
     
     [SerializeField] private ParticleSystem starPuff_FX;
     [SerializeField] private ParticleSystem jump_FX;
+    [SerializeField] private ParticleSystem dive_FX;
     [SerializeField] private ParticleSystem headCollision_FX;
 
     [SerializeField] private ParticleSystem jumpSmoke_Good;
@@ -104,6 +105,14 @@ public class PlayerAnimationControl : MonoBehaviour
     {
         animator.SetBool("Dive", choice);
         _cameraBehaviour.ChangeZoom(choice, 35f, 10f, 20f);
+        if(choice == true && _playerBehaviour.do_EndDiveBoost)
+        {
+            dive_FX.Play();
+        }
+        else
+        {
+            dive_FX.Stop();
+        }
     }
 
     public void CelebrateAir_Animation() // This can be imprved

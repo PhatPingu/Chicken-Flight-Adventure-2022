@@ -6,19 +6,23 @@ using UnityEngine.InputSystem;
 
 public class PlayerBehaviour : MonoBehaviour
 {
+    [Header("References")]
     [SerializeField] private Rigidbody rb;
     [SerializeField] private PlayerAnimationControl _playerAnimationControl;
     [SerializeField] private PlayerSoundControl _playerSoundControl;
+    [SerializeField] private PlayerFootCollision _playerFootCollision;
 
     [SerializeField] private float mouseSensitivity = 1f;
-    [SerializeField] private float diveForce = 10f;
-    [SerializeField] private float endDiveForce = 100f;
     [SerializeField] private float hoverForce = 10f;
     [SerializeField] private float pushDownForce = -700f;
     
+    [Header("Dive Attributes")]
+    [SerializeField] private float diveForce = 10f;
+    [SerializeField] private float endDiveBoostForce = 100f;
     [SerializeField] private float diveTimer;
     [SerializeField] private float diveTimer_Reset = 2f;
 
+    [Header("Jump Attributes")]
     [SerializeField] private float goodJumpTimer;
     [SerializeField] private float goodJumpTimer_Reset = 2f;
     [SerializeField] private float averageJumpTimer;
@@ -39,9 +43,10 @@ public class PlayerBehaviour : MonoBehaviour
     
     public bool inputHover;
 
+    public bool do_EndDiveBoost;
     private bool inputDive;
-    private bool do_EndDiveBoost;
     private bool isDiving;
+    private bool isGrounded;
 
     private PlayerInput playerInput;
     private InputAction jumpAction;                               // Considering Discontinuation
@@ -72,6 +77,7 @@ public class PlayerBehaviour : MonoBehaviour
         goodJumpTimer = goodJumpTimer_Reset;
         averageJumpTimer = averageJumpTimer_Reset;
         weakJumpTimer = weakJumpTimer_Reset;
+        isGrounded = _playerFootCollision.playerIsGrounded;
     }
 
     public void Boost()
@@ -184,9 +190,6 @@ public class PlayerBehaviour : MonoBehaviour
         {
             _playerAnimationControl.Dive_Animation(true);
             rb.velocity = new Vector3(0f, -diveForce, 0f);        
-            
-            goodJumpTimer = goodJumpTimer_Reset;
-            canGoodJump = false;
             isDiving = true;
         } 
         else
@@ -194,11 +197,19 @@ public class PlayerBehaviour : MonoBehaviour
             _playerAnimationControl.Dive_Animation(false);
         }
 
-        if(!inputDive && isDiving)
+        if(!inputDive && isDiving && !isGrounded)
         {
             if(do_EndDiveBoost) 
             {
-                rb.velocity = new Vector3(0f, y_StartVelocity + endDiveForce, 0f); 
+                rb.velocity = new Vector3(0f, y_StartVelocity + endDiveBoostForce, 0f); 
+                do_EndDiveBoost = false;
+            }
+            isDiving = false;
+        }
+        else if(!inputDive && isDiving && isGrounded)
+        {
+            if(do_EndDiveBoost) 
+            {
                 do_EndDiveBoost = false;
             }
             isDiving = false;
@@ -226,38 +237,32 @@ public class PlayerBehaviour : MonoBehaviour
     {
         if(canGoodJump)
         {
-            goodJumpTimer = goodJumpTimer_Reset;
-            
+            ResetJumpTimer();
             rb.AddForce(0, bestJumpForce , 0);
-            canGoodJump = false;
             _playerAnimationControl.CallJump_Animation("GoodJump");
         }
         else if(canAverageJump)
         {
-            goodJumpTimer = goodJumpTimer_Reset;
-            averageJumpTimer = averageJumpTimer_Reset;
-            
+            ResetJumpTimer();
             rb.AddForce(0, averagebestJumpForce , 0);
-
-            canAverageJump = false;
-            canGoodJump = false;
-
             _playerAnimationControl.CallJump_Animation("AverageJump");
         }
         else if(canWeakJump)
         {
-            goodJumpTimer = goodJumpTimer_Reset;
-            averageJumpTimer = averageJumpTimer_Reset;
-            weakJumpTimer = weakJumpTimer_Reset;
-            
+            ResetJumpTimer();
             rb.AddForce(0, weakbestJumpForce , 0);
-
-            canWeakJump = false;
-            canAverageJump = false;
-            canGoodJump = false;
-
             _playerAnimationControl.CallJump_Animation("WeakJump");
         }
+    }
+
+    void ResetJumpTimer()
+    {
+        goodJumpTimer = goodJumpTimer_Reset;
+        averageJumpTimer = averageJumpTimer_Reset;
+        weakJumpTimer = weakJumpTimer_Reset;
+        canWeakJump = false;
+        canAverageJump = false;
+        canGoodJump = false;
     }
 
     void PerformFlight(InputAction.CallbackContext context)
@@ -269,15 +274,21 @@ public class PlayerBehaviour : MonoBehaviour
     float y_StartVelocity;
     void PerformDive(InputAction.CallbackContext context)
     {
-        if(!inputDive) //Turn on Dive
+        if(!inputDive && !isGrounded) //Turn on Dive
         {
+            Reset_EndDiveBoost();
             inputDive = true;    
             y_StartVelocity = rb.velocity.y;
         }
         else if(inputDive) // Turning off Dive
         {
             inputDive = false;
+        }
+
+        void Reset_EndDiveBoost()
+        {
             diveTimer = diveTimer_Reset;
+            do_EndDiveBoost = false;
         }
     }
 
