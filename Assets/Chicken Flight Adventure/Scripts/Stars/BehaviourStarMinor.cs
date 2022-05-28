@@ -8,6 +8,9 @@ public class BehaviourStarMinor : MonoBehaviour
     [SerializeField] private Collider proximityCollider;
     [SerializeField] private MeshRenderer starMesh;
     [SerializeField] private LineRenderer lineRenderer;
+
+    [SerializeField] private Material inactiveMaterial;
+    [SerializeField] private Material activeMaterial;
     
     private GameObject _gameController;
     private GameObject _player;
@@ -15,7 +18,10 @@ public class BehaviourStarMinor : MonoBehaviour
     private GameObject _playerCamera;
     private PlayerAnimationControl _playerAnimationControl;
     private PlayerSoundControl _playerSoundControl;
-    
+
+    private int activationCount;
+
+    [SerializeField] public PlayerLevelStatus.StarColor colorGroup;
 
     void Start()
     {
@@ -25,6 +31,7 @@ public class BehaviourStarMinor : MonoBehaviour
         _playerCamera = GameObject.Find("Main Camera");
         _playerAnimationControl = _player.GetComponent<PlayerAnimationControl>();
         _playerSoundControl = _player.GetComponentInChildren<PlayerSoundControl>();
+        ActivateStar(false);
     }
 
     public void MakeLineToPlayer()
@@ -52,9 +59,49 @@ public class BehaviourStarMinor : MonoBehaviour
         }
     }
 
+    private void Update() 
+    {
+        if(ColorActivated() && activationCount == 0)
+        {
+            activationCount += 1;
+            ActivateStar(true);
+        }    
+    }
+
+    void ActivateStar(bool choice)
+    {       
+        starCollider.enabled = choice;
+        proximityCollider.enabled = choice;
+        if(choice)
+        {
+            starMesh.material = activeMaterial;
+        }
+        else
+        {
+            starMesh.material = inactiveMaterial;
+        }
+
+    }
+
+    bool ColorActivated()
+    {
+        if(colorGroup == PlayerLevelStatus.StarColor.Blue && PlayerLevelStatus.blueActive)
+        {
+            return true;
+        }
+        else if(colorGroup == PlayerLevelStatus.StarColor.Red && PlayerLevelStatus.redActive)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player")
+        if(other.tag == "Player" && ColorActivated())
         {
             _gameController.GetComponent<GameController>().score += 1;
             StarBoostPlayerEvent();

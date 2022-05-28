@@ -26,7 +26,14 @@ public class LevelSpawnsManager : MonoBehaviour
             InstantiationTimer = Random.Range(8.0f, 14.00f);
             for (int i = 0; i < spawner.Length; i++)
             {
-                spawner[i].CallBlockLines();
+                if(spawner[i] == null)
+                {
+                    return;
+                }
+                else
+                {
+                    spawner[i].CallBlockLines();
+                }
             }
         }
     }
@@ -35,8 +42,16 @@ public class LevelSpawnsManager : MonoBehaviour
     {
         for (int i = 0; i < spawner.Length; i++)
             {
-                spawner[i].Initialization();
-                spawner[i].spawner_enabled = false;
+                if(spawner[i] == null)
+                {
+                    return;
+                }
+                else
+                {
+                    spawner[i].Initialization();
+                    spawner[i].spawner_enabled = false;
+                }
+
             }
     }
 }

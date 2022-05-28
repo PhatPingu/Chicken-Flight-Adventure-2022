@@ -7,19 +7,24 @@ public class PlayerAnimationControl : MonoBehaviour
 {
     public Rigidbody _rigidbody;
 
+    [Header("Component References")]
     [SerializeField] private PlayerBehaviour _playerBehaviour;
     [SerializeField] private Animator animator;
     [SerializeField] private CameraBehaviour _cameraBehaviour;
     
+    [Header("VFX References")]
     [SerializeField] private ParticleSystem starPuff_FX;
     [SerializeField] private ParticleSystem jump_FX;
-    [SerializeField] private ParticleSystem dive_FX;
+    [SerializeField] private ParticleSystem diveLong_FX;
+    [SerializeField] private ParticleSystem diveShort_FX01;
+    [SerializeField] private ParticleSystem diveShort_FX02;
     [SerializeField] private ParticleSystem headCollision_FX;
 
     [SerializeField] private ParticleSystem jumpSmoke_Good;
     [SerializeField] private ParticleSystem jumpSmoke_Average;
     [SerializeField] private ParticleSystem jumpSmoke_Weak;
 
+    [Header("Attributes")]
     [SerializeField] private float timeTo_AFK = 15f;
     [SerializeField] private float velocityTo_FallingAnimation;
 
@@ -105,13 +110,25 @@ public class PlayerAnimationControl : MonoBehaviour
     {
         animator.SetBool("Dive", choice);
         _cameraBehaviour.ChangeZoom(choice, 35f, 10f, 20f);
-        if(choice == true && _playerBehaviour.do_EndDiveBoost)
+        
+        if(choice == true) 
         {
-            dive_FX.Play();
+            diveShort_FX01.Play();
+            diveShort_FX02.Play();
         }
         else
         {
-            dive_FX.Stop();
+            diveShort_FX01.Stop();
+            diveShort_FX02.Stop();
+        }
+
+        if(choice == true && _playerBehaviour.do_EndDiveBoost)
+        {
+            diveLong_FX.Play();
+        }
+        else
+        {
+            diveLong_FX.Stop();
         }
     }
 
