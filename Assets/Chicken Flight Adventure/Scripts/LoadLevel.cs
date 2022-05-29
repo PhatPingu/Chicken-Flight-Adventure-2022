@@ -90,6 +90,9 @@ public class LoadLevel : MonoBehaviour
     
     void ActivateBlueStars()
     {
+        if(blueStarChildren == null)
+        { return; }
+        
         for (int i = 0; i < blueStarChildren.Length; i++)
         {
             blueStarChildren[i].gameObject.SetActive(true);
@@ -98,6 +101,9 @@ public class LoadLevel : MonoBehaviour
 
     void DeactivateBlueStars()
     {
+        if(blueStarChildren == null)
+        { return; }
+
         for (int i = 0; i < blueStarChildren.Length; i++)
         {
             blueStarChildren[i].gameObject.SetActive(false);

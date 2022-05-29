@@ -33,6 +33,9 @@ public class PlayerBehaviour : MonoBehaviour
     [Header("Dash Attributes")]
     [SerializeField] private float forwardDashForce;
     [SerializeField] private float sideDashForce;
+    [SerializeField] private float dashDuration;
+    
+    private Vector3 startDashVelocity;
 
     public float walkSpeed = 0.15f;
 
@@ -266,32 +269,43 @@ public class PlayerBehaviour : MonoBehaviour
 
     void PerformFowardDash(InputAction.CallbackContext context) 
     {
-        if(canGoodJump)
+        if(canWeakJump)
         {
             ResetJumpTimer();
-            rb.AddRelativeForce(0, 0, forwardDashForce);
+            startDashVelocity = rb.velocity;
+            rb.AddRelativeForce(0, 0, forwardDashForce, ForceMode.VelocityChange);
             _playerAnimationControl.CallJump_Animation("GoodJump");
+            Invoke("EndDash", dashDuration);
         }
     }
 
     void PerformLeftDash(InputAction.CallbackContext context) 
     {
-        if(canGoodJump)
+        if(canWeakJump)
         {
             ResetJumpTimer();
-            rb.AddRelativeForce(-sideDashForce , 0, 0);
+            startDashVelocity = rb.velocity;
+            rb.AddRelativeForce(-sideDashForce , 0, 0, ForceMode.VelocityChange);
             _playerAnimationControl.CallJump_Animation("GoodJump");
+            Invoke("EndDash", dashDuration);
         }
     }
 
     void PerformRightDash(InputAction.CallbackContext context) 
     {
-        if(canGoodJump)
+        if(canWeakJump)
         {
             ResetJumpTimer();
-            rb.AddRelativeForce(sideDashForce, 0, 0);
+            startDashVelocity = rb.velocity;
+            rb.AddRelativeForce(sideDashForce, 0, 0, ForceMode.VelocityChange);
             _playerAnimationControl.CallJump_Animation("GoodJump");
+            Invoke("EndDash", dashDuration);
         }
+    }
+
+    void EndDash()
+    {
+        rb.velocity = startDashVelocity;
     }
 
     float y_StartVelocity;
