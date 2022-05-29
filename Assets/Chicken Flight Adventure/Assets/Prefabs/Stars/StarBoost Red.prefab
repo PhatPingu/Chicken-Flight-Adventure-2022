@@ -37,7 +37,7 @@ Transform:
   m_Children:
   - {fileID: 956665342587992701}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &33000010412949844
 MeshFilter:
@@ -267,7 +267,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colorGroup: 1
-  starColliders: []
+  starColliders:
+  - {fileID: 1079865835}
+  - {fileID: 4895647973933498930}
   starMesh: {fileID: 23000013503467608}
   inactiveMaterial: {fileID: 2100000, guid: eb623a4204f48534eb6b402a5102f7c9, type: 2}
   activeMaterial: {fileID: 2100000, guid: 6a6944f4904547e4fb039789da5fcd85, type: 2}
