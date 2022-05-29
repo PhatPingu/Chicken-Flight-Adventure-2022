@@ -71,6 +71,33 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": ""Press(behavior=2)"",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ForwardDash"",
+                    ""type"": ""Button"",
+                    ""id"": ""9d00cac6-01bb-4172-a23a-731b66d2ed6b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""LeftDash"",
+                    ""type"": ""Button"",
+                    ""id"": ""7251c95f-6658-40e4-889a-54a432eac1e7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""RightDash"",
+                    ""type"": ""Button"",
+                    ""id"": ""4541c563-26dd-4b2a-85d6-1136a0cdaa15"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -275,7 +302,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""0ae69836-be54-414f-8ba4-54655017c67d"",
-                    ""path"": ""<Keyboard>/shift"",
+                    ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
@@ -297,7 +324,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""8c19cd26-40f2-4ba5-bf59-c988f62a636a"",
-                    ""path"": ""<Keyboard>/alt"",
+                    ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
@@ -313,6 +340,50 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Dive"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8620fe50-cd87-412a-9b9b-59dfbebe947e"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""ForwardDash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2e5eed12-893f-433e-b616-3f00486f06a4"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""ForwardDash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5a13800b-9eeb-4289-8e01-ae3caad3ec13"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""LeftDash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a9bd758a-2c79-4034-a4f0-e70a2d00eb4e"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""RightDash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -351,6 +422,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_RotateCamera = m_Player.FindAction("RotateCamera", throwIfNotFound: true);
         m_Player_Dive = m_Player.FindAction("Dive", throwIfNotFound: true);
+        m_Player_ForwardDash = m_Player.FindAction("ForwardDash", throwIfNotFound: true);
+        m_Player_LeftDash = m_Player.FindAction("LeftDash", throwIfNotFound: true);
+        m_Player_RightDash = m_Player.FindAction("RightDash", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -415,6 +489,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Movement;
     private readonly InputAction m_Player_RotateCamera;
     private readonly InputAction m_Player_Dive;
+    private readonly InputAction m_Player_ForwardDash;
+    private readonly InputAction m_Player_LeftDash;
+    private readonly InputAction m_Player_RightDash;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -424,6 +501,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
         public InputAction @RotateCamera => m_Wrapper.m_Player_RotateCamera;
         public InputAction @Dive => m_Wrapper.m_Player_Dive;
+        public InputAction @ForwardDash => m_Wrapper.m_Player_ForwardDash;
+        public InputAction @LeftDash => m_Wrapper.m_Player_LeftDash;
+        public InputAction @RightDash => m_Wrapper.m_Player_RightDash;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -448,6 +528,15 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Dive.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDive;
                 @Dive.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDive;
                 @Dive.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDive;
+                @ForwardDash.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnForwardDash;
+                @ForwardDash.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnForwardDash;
+                @ForwardDash.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnForwardDash;
+                @LeftDash.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLeftDash;
+                @LeftDash.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLeftDash;
+                @LeftDash.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLeftDash;
+                @RightDash.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRightDash;
+                @RightDash.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRightDash;
+                @RightDash.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRightDash;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -467,6 +556,15 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Dive.started += instance.OnDive;
                 @Dive.performed += instance.OnDive;
                 @Dive.canceled += instance.OnDive;
+                @ForwardDash.started += instance.OnForwardDash;
+                @ForwardDash.performed += instance.OnForwardDash;
+                @ForwardDash.canceled += instance.OnForwardDash;
+                @LeftDash.started += instance.OnLeftDash;
+                @LeftDash.performed += instance.OnLeftDash;
+                @LeftDash.canceled += instance.OnLeftDash;
+                @RightDash.started += instance.OnRightDash;
+                @RightDash.performed += instance.OnRightDash;
+                @RightDash.canceled += instance.OnRightDash;
             }
         }
     }
@@ -496,5 +594,8 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnRotateCamera(InputAction.CallbackContext context);
         void OnDive(InputAction.CallbackContext context);
+        void OnForwardDash(InputAction.CallbackContext context);
+        void OnLeftDash(InputAction.CallbackContext context);
+        void OnRightDash(InputAction.CallbackContext context);
     }
 }

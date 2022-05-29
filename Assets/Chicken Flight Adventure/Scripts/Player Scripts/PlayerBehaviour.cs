@@ -6,19 +6,23 @@ using UnityEngine.InputSystem;
 
 public class PlayerBehaviour : MonoBehaviour
 {
+    [Header("References")]
     [SerializeField] private Rigidbody rb;
     [SerializeField] private PlayerAnimationControl _playerAnimationControl;
     [SerializeField] private PlayerSoundControl _playerSoundControl;
+    [SerializeField] private PlayerFootCollision _playerFootCollision;
 
     [SerializeField] private float mouseSensitivity = 1f;
-    [SerializeField] private float diveForce = 10f;
-    [SerializeField] private float endDiveForce = 100f;
     [SerializeField] private float hoverForce = 10f;
     [SerializeField] private float pushDownForce = -700f;
     
+    [Header("Dive Attributes")]
+    [SerializeField] private float diveForce = 10f;
+    [SerializeField] private float endDiveBoostForce = 100f;
     [SerializeField] private float diveTimer;
     [SerializeField] private float diveTimer_Reset = 2f;
 
+    [Header("Jump Attributes")]
     [SerializeField] private float goodJumpTimer;
     [SerializeField] private float goodJumpTimer_Reset = 2f;
     [SerializeField] private float averageJumpTimer;
@@ -26,6 +30,13 @@ public class PlayerBehaviour : MonoBehaviour
     [SerializeField] private float weakJumpTimer;
     [SerializeField] private float weakJumpTimer_Reset = 1f;
     
+    [Header("Dash Attributes")]
+    [SerializeField] private float forwardDashForce;
+    [SerializeField] private float sideDashForce;
+    [SerializeField] private float dashDuration;
+    
+    private Vector3 startDashVelocity;
+
     public float walkSpeed = 0.15f;
 
     public float bestJumpForce = 800f;
@@ -39,34 +50,43 @@ public class PlayerBehaviour : MonoBehaviour
     
     public bool inputHover;
 
+    public bool do_EndDiveBoost;
     private bool inputDive;
-    private bool do_EndDiveBoost;
     private bool isDiving;
 
     private PlayerInput playerInput;
-    private InputAction jumpAction;                               // Considering Discontinuation
+    private InputAction jumpAction;                               
     private InputAction flyAction;
     private InputAction movementAction;
     private InputAction cameraAction;
     private InputAction diveAction;
+    private InputAction forwardDashAction;
+    private InputAction leftDashAction;
+    private InputAction rightDashAction;
 
     void Awake()
     {
         playerInput =       GetComponent<PlayerInput>();
-        jumpAction =        playerInput.actions["Jump"];          // Considering Discontinuation
+        jumpAction =        playerInput.actions["Jump"];          
         flyAction =         playerInput.actions["Fly"];
         movementAction =    playerInput.actions["Movement"];
         cameraAction =      playerInput.actions["RotateCamera"];
         diveAction =        playerInput.actions["Dive"];
+        forwardDashAction = playerInput.actions["ForwardDash"];
+        leftDashAction =    playerInput.actions["LeftDash"];
+        rightDashAction =   playerInput.actions["RightDash"];
     }
 
     void Start()
     {
-        movementAction.performed += _   => PlayerMovement();
-        cameraAction.performed += _     => PlayerRotate();
-        jumpAction.performed += context => PerformJump(context);  // Considering Discontinuation
-        flyAction.performed += context  => PerformFlight(context);
-        diveAction.performed += context => PerformDive(context);
+        movementAction.performed += _           => PlayerMovement();
+        cameraAction.performed += _             => PlayerRotate();
+        jumpAction.performed += context         => PerformJump(context);  
+        flyAction.performed += context          => PerformFlight(context);
+        diveAction.performed += context         => PerformDive(context);
+        forwardDashAction.performed += context  => PerformFowardDash(context);
+        leftDashAction.performed += context     => PerformLeftDash(context);
+        rightDashAction.performed += context    => PerformRightDash(context);
 
         Physics.gravity = new Vector3(0, -10F, 0);
         goodJumpTimer = goodJumpTimer_Reset;
@@ -99,7 +119,7 @@ public class PlayerBehaviour : MonoBehaviour
     {
         rb.MovePosition(transform.position 
         + (transform.forward * movementAction.ReadValue<Vector2>().y * walkSpeed) 
-        + (transform.right * movementAction.ReadValue<Vector2>().x * walkSpeed));
+        + (transform.right   * movementAction.ReadValue<Vector2>().x * walkSpeed));
     }
 
     void PlayerRotate()
@@ -141,32 +161,14 @@ public class PlayerBehaviour : MonoBehaviour
 
     void FlightController()
     {
-        /*if (inputHover && canGoodJump)
-        {
-            goodJumpTimer = goodJumpTimer_Reset;
-            
-            rb.AddForce(0, bestJumpForce, 0);
-            canGoodJump = false;
-            _playerAnimationControl.CallFlightBoost_Animation();
-        }*/
-        if (inputHover)
-        {
-            rb.AddForce(0, hoverForce * Time.deltaTime, 0);
-        }
-        /*else if (inputHover  && !canGoodJump && rb.velocity.y < 0f) //This is never getting called bacasuse of else_if above!
-        {
-            rb.AddForce(0, 500, 0);    
-        }*/
-        else
-        {
-            rb.AddForce(0, pushDownForce * Time.deltaTime, 0);
-        }
+        if (inputHover) {rb.AddForce(0, hoverForce    * Time.deltaTime, 0);}
+        else            {rb.AddForce(0, pushDownForce * Time.deltaTime, 0);}
     }
 
     void VelocityContorol()
     {
-        if(rb.velocity.y > 15f) {rb.velocity = new Vector3(0,14.9f,0);}
-        if(rb.velocity.y < -50f) {rb.velocity = new Vector3(0,-50f,0);}
+        if(rb.velocity.y > 15f)  {rb.velocity = new Vector3(0,14.9f,0);}
+        if(rb.velocity.y < -50f) {rb.velocity = new Vector3(0, -50f,0);}
     }
     
     void CanDiveController()  
@@ -184,9 +186,6 @@ public class PlayerBehaviour : MonoBehaviour
         {
             _playerAnimationControl.Dive_Animation(true);
             rb.velocity = new Vector3(0f, -diveForce, 0f);        
-            
-            goodJumpTimer = goodJumpTimer_Reset;
-            canGoodJump = false;
             isDiving = true;
         } 
         else
@@ -198,7 +197,15 @@ public class PlayerBehaviour : MonoBehaviour
         {
             if(do_EndDiveBoost) 
             {
-                rb.velocity = new Vector3(0f, y_StartVelocity + endDiveForce, 0f); 
+                rb.velocity = new Vector3(0f, y_StartVelocity + endDiveBoostForce, 0f); 
+                do_EndDiveBoost = false;
+            }
+            isDiving = false;
+        }
+        else if(!inputDive && isDiving)
+        {
+            if(do_EndDiveBoost) 
+            {
                 do_EndDiveBoost = false;
             }
             isDiving = false;
@@ -221,63 +228,104 @@ public class PlayerBehaviour : MonoBehaviour
         {   _playerSoundControl.StopSFX_Flying();   }
     }
     // Updates -------------------------------------------------------end
-  
-    void PerformJump(InputAction.CallbackContext context)   // !!! Considering Discontinuation
+    
+    void PerformFlight(InputAction.CallbackContext context)
+    {
+        if(!inputHover)     {inputHover = true;   } //Turn on Flight
+        else                {inputHover = false;  } //Turn off Flight
+    }
+
+    void PerformJump(InputAction.CallbackContext context) 
     {
         if(canGoodJump)
         {
-            goodJumpTimer = goodJumpTimer_Reset;
-            
+            ResetJumpTimer();
             rb.AddForce(0, bestJumpForce , 0);
-            canGoodJump = false;
             _playerAnimationControl.CallJump_Animation("GoodJump");
         }
         else if(canAverageJump)
         {
-            goodJumpTimer = goodJumpTimer_Reset;
-            averageJumpTimer = averageJumpTimer_Reset;
-            
+            ResetJumpTimer();
             rb.AddForce(0, averagebestJumpForce , 0);
-
-            canAverageJump = false;
-            canGoodJump = false;
-
             _playerAnimationControl.CallJump_Animation("AverageJump");
         }
         else if(canWeakJump)
         {
-            goodJumpTimer = goodJumpTimer_Reset;
-            averageJumpTimer = averageJumpTimer_Reset;
-            weakJumpTimer = weakJumpTimer_Reset;
-            
+            ResetJumpTimer();
             rb.AddForce(0, weakbestJumpForce , 0);
-
-            canWeakJump = false;
-            canAverageJump = false;
-            canGoodJump = false;
-
             _playerAnimationControl.CallJump_Animation("WeakJump");
         }
     }
 
-    void PerformFlight(InputAction.CallbackContext context)
+    void ResetJumpTimer()
     {
-        if(!inputHover)    {inputHover = true;   } //Turn on Flight
-        else                {inputHover = false;  } //Turn off Flight
+        goodJumpTimer = goodJumpTimer_Reset;
+        averageJumpTimer = averageJumpTimer_Reset;
+        weakJumpTimer = weakJumpTimer_Reset;
+        canWeakJump = false;
+        canAverageJump = false;
+        canGoodJump = false;
+    }
+
+    void PerformFowardDash(InputAction.CallbackContext context) 
+    {
+        if(canWeakJump)
+        {
+            ResetJumpTimer();
+            startDashVelocity = rb.velocity;
+            rb.AddRelativeForce(0, 0, forwardDashForce, ForceMode.VelocityChange);
+            _playerAnimationControl.CallJump_Animation("GoodJump");
+            Invoke("EndDash", dashDuration);
+        }
+    }
+
+    void PerformLeftDash(InputAction.CallbackContext context) 
+    {
+        if(canWeakJump)
+        {
+            ResetJumpTimer();
+            startDashVelocity = rb.velocity;
+            rb.AddRelativeForce(-sideDashForce , 0, 0, ForceMode.VelocityChange);
+            _playerAnimationControl.CallJump_Animation("GoodJump");
+            Invoke("EndDash", dashDuration);
+        }
+    }
+
+    void PerformRightDash(InputAction.CallbackContext context) 
+    {
+        if(canWeakJump)
+        {
+            ResetJumpTimer();
+            startDashVelocity = rb.velocity;
+            rb.AddRelativeForce(sideDashForce, 0, 0, ForceMode.VelocityChange);
+            _playerAnimationControl.CallJump_Animation("GoodJump");
+            Invoke("EndDash", dashDuration);
+        }
+    }
+
+    void EndDash()
+    {
+        rb.velocity = startDashVelocity;
     }
 
     float y_StartVelocity;
     void PerformDive(InputAction.CallbackContext context)
     {
-        if(!inputDive) //Turn on Dive
+        if(!inputDive && !_playerFootCollision.playerIsGrounded) //Turn on Dive
         {
+            Reset_EndDiveBoost();
             inputDive = true;    
             y_StartVelocity = rb.velocity.y;
         }
         else if(inputDive) // Turning off Dive
         {
             inputDive = false;
+        }
+
+        void Reset_EndDiveBoost()
+        {
             diveTimer = diveTimer_Reset;
+            do_EndDiveBoost = false;
         }
     }
 

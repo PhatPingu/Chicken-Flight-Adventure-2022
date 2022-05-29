@@ -15,7 +15,6 @@ public class BehaviourStarMinor : MonoBehaviour
     private GameObject _playerCamera;
     private PlayerAnimationControl _playerAnimationControl;
     private PlayerSoundControl _playerSoundControl;
-    
 
     void Start()
     {
