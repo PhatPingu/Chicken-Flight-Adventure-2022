@@ -14,6 +14,12 @@ public class ArrayCreator_CustomInspector : Editor
         {
             arrayCreatorTool.CreateSpawner();
         }
+
+        if(GUILayout.Button("Update Values"))
+        {
+            arrayCreatorTool.UpdateCoordinates();
+            arrayCreatorTool.UpdateObjectList();
+        }
     }  
     
 }
