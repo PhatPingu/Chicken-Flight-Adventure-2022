@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 7744063381517741782}
   - component: {fileID: 4226238318722356444}
   m_Layer: 0
-  m_Name: pedra1
+  m_Name: pedra_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -211,11 +211,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 6279867205684091964}
   - {fileID: 1578448703505035735}
   - {fileID: 6106530804035537817}
   - {fileID: 4801377655772078808}
   - {fileID: 3225436584809862619}
-  - {fileID: 6279867205684091964}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -266,7 +266,7 @@ GameObject:
   - component: {fileID: 7117002524847455879}
   - component: {fileID: 4105983704269566427}
   m_Layer: 0
-  m_Name: pedra3
+  m_Name: pedra_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -349,7 +349,7 @@ GameObject:
   - component: {fileID: 387323344411828651}
   - component: {fileID: 8540736643457758212}
   m_Layer: 0
-  m_Name: pedra2
+  m_Name: pedra_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3333564499500094878}
   - component: {fileID: 5584579831549004199}
   m_Layer: 0
-  m_Name: base.002
+  m_Name: base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 8699071686463691190}
   - component: {fileID: -8815973265974826908}
   m_Layer: 0
-  m_Name: plataforma_2 niveis
+  m_Name: Plataforma_2_niveis
   m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -128,8 +128,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4050051946438640154}
   - {fileID: 7491977848808961125}
+  - {fileID: 4050051946438640154}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -181,7 +181,7 @@ GameObject:
   - component: {fileID: 3165567842687865809}
   - component: {fileID: 7371908575265179577}
   m_Layer: 0
-  m_Name: topo.002
+  m_Name: topo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

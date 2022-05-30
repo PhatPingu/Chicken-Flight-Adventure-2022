@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5545393999226971850}
   - component: {fileID: 5378366727319654935}
   m_Layer: 0
-  m_Name: base.003
+  m_Name: base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 7221290354934798774}
   - component: {fileID: 8055411329900431599}
   m_Layer: 0
-  m_Name: pedra4
+  m_Name: pedra_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -194,7 +194,7 @@ GameObject:
   - component: {fileID: 7086936936386208763}
   - component: {fileID: 4722971885976482659}
   m_Layer: 0
-  m_Name: topo.003
+  m_Name: topo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -292,7 +292,7 @@ GameObject:
   - component: {fileID: 4905811169760750758}
   - component: {fileID: 666036713910967532}
   m_Layer: 0
-  m_Name: pedra2.001
+  m_Name: pedra_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -390,7 +390,7 @@ GameObject:
   - component: {fileID: 3956683171145283818}
   - component: {fileID: 292519951593996425}
   m_Layer: 0
-  m_Name: pedra1.001
+  m_Name: pedra_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -487,7 +487,7 @@ GameObject:
   - component: {fileID: 5633193916311842778}
   - component: {fileID: 7416235819753822388}
   m_Layer: 0
-  m_Name: plataforma_com pedras
+  m_Name: Plataforma_com_pedras
   m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -505,12 +505,12 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 612701562591962947}
   - {fileID: 1337094311381838214}
   - {fileID: 830615703234041765}
   - {fileID: 8216635048699768916}
   - {fileID: 8102116726716060180}
   - {fileID: 1011058478544398738}
+  - {fileID: 612701562591962947}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -561,7 +561,7 @@ GameObject:
   - component: {fileID: 8759125202081288257}
   - component: {fileID: 8746481052821618662}
   m_Layer: 0
-  m_Name: pedra3.001
+  m_Name: pedra_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
