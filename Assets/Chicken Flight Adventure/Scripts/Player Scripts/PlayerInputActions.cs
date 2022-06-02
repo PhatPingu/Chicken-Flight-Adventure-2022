@@ -396,6 +396,11 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
             ""bindingGroup"": ""Keyboard"",
             ""devices"": [
                 {
+                    ""devicePath"": ""<Mouse>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                },
+                {
                     ""devicePath"": ""<Keyboard>"",
                     ""isOptional"": false,
                     ""isOR"": false
