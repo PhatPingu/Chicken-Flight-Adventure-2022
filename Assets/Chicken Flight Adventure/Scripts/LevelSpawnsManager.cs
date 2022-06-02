@@ -10,6 +10,7 @@ public class LevelSpawnsManager : MonoBehaviour
     public GameObject[] platformObject;
     public Material[] material_topPlatform;
     public Material[] material_bottomPlatform;
+    public Material[] material_rockPlatform;
     
     public float InstantiationTimer;
 
