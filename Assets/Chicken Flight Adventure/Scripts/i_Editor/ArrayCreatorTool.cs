@@ -27,32 +27,38 @@ public class ArrayCreatorTool : MonoBehaviour
     [SerializeField] private ArrayTool[] line_02;
     [SerializeField] private ArrayTool[] line_03;
     [SerializeField] private ArrayTool[] line_04;
+    ArrayTool[][]  lines_Array;
 
     [Header("### Variation ###")]
     [SerializeField] private Variation[] variation_line_01;
     [SerializeField] private Variation[] variation_line_02;
     [SerializeField] private Variation[] variation_line_03;
     [SerializeField] private Variation[] variation_line_04;
+    Variation[][] variations_Array;
+    
 
     //"### Objects ###"
     private GameObject[] object_line_01;
     private GameObject[] object_line_02;
     private GameObject[] object_line_03;
     private GameObject[] object_line_04;
+    GameObject[][] objects_Array;
 
     void Start()
     {
-    object_line_01 = new GameObject[8];
-    object_line_02 = new GameObject[8];
-    object_line_03 = new GameObject[8];
-    object_line_04 = new GameObject[8];
+        object_line_01 = new GameObject[8];
+        object_line_02 = new GameObject[8];
+        object_line_03 = new GameObject[8];
+        object_line_04 = new GameObject[8];
 
-    line_01 = new ArrayTool[8];
-    line_02 = new ArrayTool[8];
-    line_03 = new ArrayTool[8];
-    line_04 = new ArrayTool[8];
+        line_01 = new ArrayTool[8];
+        line_02 = new ArrayTool[8];
+        line_03 = new ArrayTool[8];
+        line_04 = new ArrayTool[8];
+        
+        
+        objects_Array    = new[] {object_line_01, object_line_02, object_line_03, object_line_04};
     }
-
 
     public void UpdateObjectList()
     {
@@ -114,57 +120,32 @@ public class ArrayCreatorTool : MonoBehaviour
 
     public void UpdateCoordinates()
     {
+        lines_Array = new[] {line_01, line_02, line_03, line_04};
+        BlockLocationCoord[][] spawnerSource_lines_Array = new[] {
+            spawnerSource.line_01, spawnerSource.line_02, spawnerSource.line_03, spawnerSource.line_04};
+
         if(spawnerSource != null)
         {
-            for (int i = 0; i < line_01.Length; i++)
+            for (int k = 0; k < lines_Array.Length; k++)
             {
-                line_01[i].xPosMin      = spawnerSource.line_01[i].xPosMin;
-                line_01[i].xPosMax      = spawnerSource.line_01[i].xPosMax;
-                line_01[i].yPos         = spawnerSource.line_01[i].yPos;
-                line_01[i].yPosOffset   = spawnerSource.line_01[i].yPosOffset;
-                line_01[i].zPosMin      = spawnerSource.line_01[i].zPosMin;
-                line_01[i].zPosMax      = spawnerSource.line_01[i].zPosMax;
-            }
-
-            for (int i = 0; i < line_02.Length; i++)
-            {
-                line_02[i].xPosMin      = spawnerSource.line_02[i].xPosMin;
-                line_02[i].xPosMax      = spawnerSource.line_02[i].xPosMax;
-                line_02[i].yPos         = spawnerSource.line_02[i].yPos;
-                line_02[i].yPosOffset   = spawnerSource.line_02[i].yPosOffset;
-                line_02[i].zPosMin      = spawnerSource.line_02[i].zPosMin;
-                line_02[i].zPosMax      = spawnerSource.line_02[i].zPosMax;
-            }
-
-            for (int i = 0; i < line_03.Length; i++)
-            {
-                line_03[i].xPosMin      = spawnerSource.line_03[i].xPosMin;
-                line_03[i].xPosMax      = spawnerSource.line_03[i].xPosMax;
-                line_03[i].yPos         = spawnerSource.line_03[i].yPos;
-                line_03[i].yPosOffset   = spawnerSource.line_03[i].yPosOffset;
-                line_03[i].zPosMin      = spawnerSource.line_03[i].zPosMin;
-                line_03[i].zPosMax      = spawnerSource.line_03[i].zPosMax;
-            }
-
-            for (int i = 0; i < line_04.Length; i++)
-            {
-                line_04[i].xPosMin      = spawnerSource.line_04[i].xPosMin;
-                line_04[i].xPosMax      = spawnerSource.line_04[i].xPosMax;
-                line_04[i].yPos         = spawnerSource.line_04[i].yPos;
-                line_04[i].yPosOffset   = spawnerSource.line_04[i].yPosOffset;
-                line_04[i].zPosMin      = spawnerSource.line_04[i].zPosMin;
-                line_04[i].zPosMax      = spawnerSource.line_04[i].zPosMax;
-            }
-
-            Variation[][] VariationArray = new[] {
-                variation_line_01, variation_line_02, variation_line_03, variation_line_04};
-            
-            for (int k = 0; k < VariationArray.Length; k++)
-            {
-                for (int i = 0; i < VariationArray[k].Length; i++)
+                for (int i = 0; i < lines_Array[k].Length; i++)
                 {
-                    VariationArray[k][i].xVariation = 0f;
-                    VariationArray[k][i].zVariation = 0f;
+                    lines_Array[k][i].xPosMin      = spawnerSource_lines_Array[k][i].xPosMin;
+                    lines_Array[k][i].xPosMax      = spawnerSource_lines_Array[k][i].xPosMax;
+                    lines_Array[k][i].yPos         = spawnerSource_lines_Array[k][i].yPos;
+                    lines_Array[k][i].yPosOffset   = spawnerSource_lines_Array[k][i].yPosOffset;
+                    lines_Array[k][i].zPosMin      = spawnerSource_lines_Array[k][i].zPosMin;
+                    lines_Array[k][i].zPosMax      = spawnerSource_lines_Array[k][i].zPosMax;
+                }
+            }
+            
+            variations_Array = new[] {variation_line_01, variation_line_02, variation_line_03, variation_line_04};
+            for (int k = 0; k < variations_Array.Length; k++)
+            {
+                for (int i = 0; i < variations_Array[k].Length; i++)
+                {
+                    variations_Array[k][i].xVariation = 0f;
+                    variations_Array[k][i].zVariation = 0f;
                 }
             }
         }

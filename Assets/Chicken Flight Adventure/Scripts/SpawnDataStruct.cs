@@ -27,10 +27,17 @@ public class SpawnDataStruct : ScriptableObject
     [SerializeField] public BlockLocationCoord[] line_02;
     [SerializeField] public BlockLocationCoord[] line_03;
     [SerializeField] public BlockLocationCoord[] line_04;
+    public BlockLocationCoord[][]  lines_Array;
+
+    void Start() 
+    {
+        lines_Array = new[] {line_01, line_02, line_03, line_04};
+    }
 
     public void Initialization()
     {
         _platformObject = GameObject.Find("Game Controller").GetComponent<LevelSpawnsManager>().platformObject;
+        
     }
 
     public void CallBlockLines()
