@@ -22,25 +22,23 @@ public class ArrayCreatorTool : MonoBehaviour
     [Header("### Copy from Spawner ###")]
     [SerializeField] private SpawnDataStruct spawnerSource;
 
+    [Header("### Coords ###")]
+    [SerializeField] private ArrayTool[] line_01;
+    [SerializeField] private ArrayTool[] line_02;
+    [SerializeField] private ArrayTool[] line_03;
+    [SerializeField] private ArrayTool[] line_04;
+
     [Header("### Variation ###")]
     [SerializeField] private Variation[] variation_line_01;
     [SerializeField] private Variation[] variation_line_02;
     [SerializeField] private Variation[] variation_line_03;
     [SerializeField] private Variation[] variation_line_04;
 
-
-    //"### Coords ###"
-    [SerializeField] private ArrayTool[] line_01;
-    [SerializeField] private ArrayTool[] line_02;
-    [SerializeField] private ArrayTool[] line_03;
-    [SerializeField] private ArrayTool[] line_04;
-
-
     //"### Objects ###"
-    [SerializeField] private GameObject[] object_line_01;
-    [SerializeField] private GameObject[] object_line_02;
-    [SerializeField] private GameObject[] object_line_03;
-    [SerializeField] private GameObject[] object_line_04;
+    private GameObject[] object_line_01;
+    private GameObject[] object_line_02;
+    private GameObject[] object_line_03;
+    private GameObject[] object_line_04;
 
     void Start()
     {
@@ -58,12 +56,32 @@ public class ArrayCreatorTool : MonoBehaviour
 
     public void UpdateObjectList()
     {
+        for (int i = 0; i < object_line_01.Length; i++)
+        {
+            object_line_01[i] = transform.GetChild(0).GetChild(i).gameObject;
+        }
+
+        for (int i = 0; i < object_line_02.Length; i++)
+        {
+            object_line_02[i] = transform.GetChild(1).GetChild(i).gameObject;
+        }
+
+        for (int i = 0; i < object_line_03.Length; i++)
+        {
+            object_line_03[i] = transform.GetChild(2).GetChild(i).gameObject;
+        }
+
+        for (int i = 0; i < object_line_04.Length; i++)
+        {
+            object_line_04[i] = transform.GetChild(3).GetChild(i).gameObject;
+        }
+
         if(spawnerSource != null)
         {
             for (int i = 0; i < object_line_01.Length; i++)
             {
                 float x = (spawnerSource.line_01[i].xPosMax + spawnerSource.line_01[i].xPosMax) * 0.5f;
-                float y = spawnerSource.line_01[i].yPos;
+                float y = (spawnerSource.line_01[i].yPos    + spawnerSource.line_01[i].yPosOffset);
                 float z = (spawnerSource.line_01[i].zPosMax + spawnerSource.line_01[i].zPosMin) * 0.5f;
                 transform.GetChild(0).GetChild(i).gameObject.transform.position = new Vector3 (x, y, z);
             }
@@ -71,7 +89,7 @@ public class ArrayCreatorTool : MonoBehaviour
             for (int i = 0; i < object_line_02.Length; i++)
             {
                 float x = (spawnerSource.line_02[i].xPosMax + spawnerSource.line_02[i].xPosMax) * 0.5f;
-                float y = spawnerSource.line_02[i].yPos;
+                float y = (spawnerSource.line_02[i].yPos    + spawnerSource.line_02[i].yPosOffset);
                 float z = (spawnerSource.line_02[i].zPosMax + spawnerSource.line_02[i].zPosMin) * 0.5f;
                 transform.GetChild(1).GetChild(i).gameObject.transform.position = new Vector3 (x, y, z);
             }
@@ -79,7 +97,7 @@ public class ArrayCreatorTool : MonoBehaviour
             for (int i = 0; i < object_line_03.Length; i++)
             {
                 float x = (spawnerSource.line_03[i].xPosMax + spawnerSource.line_03[i].xPosMax) * 0.5f;
-                float y = spawnerSource.line_03[i].yPos;
+                float y = (spawnerSource.line_03[i].yPos    + spawnerSource.line_03[i].yPosOffset);
                 float z = (spawnerSource.line_03[i].zPosMax + spawnerSource.line_03[i].zPosMin) * 0.5f;
                 transform.GetChild(2).GetChild(i).gameObject.transform.position = new Vector3 (x, y, z);
             }
@@ -87,31 +105,9 @@ public class ArrayCreatorTool : MonoBehaviour
             for (int i = 0; i < object_line_04.Length; i++)
             {
                 float x = (spawnerSource.line_04[i].xPosMax + spawnerSource.line_04[i].xPosMax) * 0.5f;
-                float y = spawnerSource.line_04[i].yPos;
+                float y = (spawnerSource.line_04[i].yPos    + spawnerSource.line_04[i].yPosOffset);
                 float z = (spawnerSource.line_04[i].zPosMax + spawnerSource.line_04[i].zPosMin) * 0.5f;
                 transform.GetChild(3).GetChild(i).gameObject.transform.position = new Vector3 (x, y, z);
-            }
-        }
-        else
-        {
-            for (int i = 0; i < object_line_01.Length; i++)
-            {
-                object_line_01[i] = transform.GetChild(0).GetChild(i).gameObject;
-            }
-
-            for (int i = 0; i < object_line_02.Length; i++)
-            {
-                object_line_02[i] = transform.GetChild(1).GetChild(i).gameObject;
-            }
-
-            for (int i = 0; i < object_line_03.Length; i++)
-            {
-                object_line_03[i] = transform.GetChild(2).GetChild(i).gameObject;
-            }
-
-            for (int i = 0; i < object_line_04.Length; i++)
-            {
-                object_line_04[i] = transform.GetChild(3).GetChild(i).gameObject;
             }
         }
     }
@@ -159,6 +155,18 @@ public class ArrayCreatorTool : MonoBehaviour
                 line_04[i].zPosMin      = spawnerSource.line_04[i].zPosMin;
                 line_04[i].zPosMax      = spawnerSource.line_04[i].zPosMax;
             }
+
+            Variation[][] VariationArray = new[] {
+                variation_line_01, variation_line_02, variation_line_03, variation_line_04};
+            
+            for (int k = 0; k < VariationArray.Length; k++)
+            {
+                for (int i = 0; i < VariationArray[k].Length; i++)
+                {
+                    VariationArray[k][i].xVariation = 0f;
+                    VariationArray[k][i].zVariation = 0f;
+                }
+            }
         }
         else
         {
@@ -166,7 +174,7 @@ public class ArrayCreatorTool : MonoBehaviour
             {
                 line_01[i].xPosMin = object_line_01[i].transform.position.x - variation_line_01[i].xVariation;
                 line_01[i].xPosMax = object_line_01[i].transform.position.x + variation_line_01[i].xVariation;
-                line_01[i].yPos = object_line_01[i].transform.position.y;
+                line_01[i].yPos    = object_line_01[i].transform.position.y;
                 line_01[i].yPosOffset = 0f;
                 line_01[i].zPosMin = object_line_01[i].transform.position.z - variation_line_01[i].zVariation;
                 line_01[i].zPosMax = object_line_01[i].transform.position.z + variation_line_01[i].zVariation;
@@ -176,7 +184,7 @@ public class ArrayCreatorTool : MonoBehaviour
             {
                 line_02[i].xPosMin = object_line_02[i].transform.position.x - variation_line_02[i].xVariation;
                 line_02[i].xPosMax = object_line_02[i].transform.position.x + variation_line_02[i].xVariation;
-                line_02[i].yPos = object_line_02[i].transform.position.y;
+                line_02[i].yPos    = object_line_02[i].transform.position.y;
                 line_02[i].yPosOffset = 0f;
                 line_02[i].zPosMin = object_line_02[i].transform.position.z - variation_line_02[i].zVariation;
                 line_02[i].zPosMax = object_line_02[i].transform.position.z + variation_line_02[i].zVariation;
@@ -186,7 +194,7 @@ public class ArrayCreatorTool : MonoBehaviour
             {
                 line_03[i].xPosMin = object_line_03[i].transform.position.x - variation_line_03[i].xVariation;
                 line_03[i].xPosMax = object_line_03[i].transform.position.x + variation_line_03[i].xVariation;
-                line_03[i].yPos = object_line_03[i].transform.position.y;
+                line_03[i].yPos    = object_line_03[i].transform.position.y;
                 line_03[i].yPosOffset = 0f;
                 line_03[i].zPosMin = object_line_03[i].transform.position.z - variation_line_03[i].zVariation;
                 line_03[i].zPosMax = object_line_03[i].transform.position.z + variation_line_03[i].zVariation;
@@ -196,7 +204,7 @@ public class ArrayCreatorTool : MonoBehaviour
             {
                 line_04[i].xPosMin = object_line_04[i].transform.position.x - variation_line_04[i].xVariation;
                 line_04[i].xPosMax = object_line_04[i].transform.position.x + variation_line_04[i].xVariation;
-                line_04[i].yPos = object_line_04[i].transform.position.y;
+                line_04[i].yPos    = object_line_04[i].transform.position.y;
                 line_04[i].yPosOffset = 0f;
                 line_04[i].zPosMin = object_line_04[i].transform.position.z - variation_line_04[i].zVariation;
                 line_04[i].zPosMax = object_line_04[i].transform.position.z + variation_line_04[i].zVariation;
