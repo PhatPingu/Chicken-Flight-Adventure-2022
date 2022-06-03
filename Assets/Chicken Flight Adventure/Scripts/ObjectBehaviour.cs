@@ -5,8 +5,9 @@ using UnityEngine;
 public class ObjectBehaviour : MonoBehaviour
 {
     [SerializeField] private LevelSpawnsManager _levelSpawnsManager;
-    [SerializeField] private Renderer material_topPlatform;
-    [SerializeField] private Renderer material_bottomPlatform;
+    [SerializeField] private Renderer[] material_topPlatform;
+    [SerializeField] private Renderer[] material_bottomPlatform;
+    [SerializeField] private Renderer[] material_rockPlatform;
 
 
     [SerializeField] public bool doDestroyOnTimer;
@@ -80,10 +81,22 @@ public class ObjectBehaviour : MonoBehaviour
     void SetRandomMaterial()
     {
         int random_top = Random.Range(0, _levelSpawnsManager.material_topPlatform.Length);
-        material_topPlatform.material = _levelSpawnsManager.material_topPlatform[random_top];
-        
+        for (int i = 0; i < material_topPlatform.Length; i++)
+        {
+            material_topPlatform[i].material = _levelSpawnsManager.material_topPlatform[random_top];
+        }
+
         int random_bottom = Random.Range(0, _levelSpawnsManager.material_bottomPlatform.Length);
-        material_bottomPlatform.material = _levelSpawnsManager.material_bottomPlatform[random_bottom];
+        for (int i = 0; i < material_bottomPlatform.Length; i++)
+        {
+            material_bottomPlatform[i].material = _levelSpawnsManager.material_bottomPlatform[random_bottom];
+        }       
+
+        int random_rock = Random.Range(0, _levelSpawnsManager.material_rockPlatform.Length);
+        for (int i = 0; i < material_rockPlatform.Length; i++)
+        {
+            material_rockPlatform[i].material = _levelSpawnsManager.material_rockPlatform[random_rock];
+        } 
     }
 
     void DestroyAlert()
@@ -97,13 +110,18 @@ public class ObjectBehaviour : MonoBehaviour
         if(timer >= timerLimit)
         {
             Color newColor = new Color(1, 0, 0, 1); //change color to red
-            material_topPlatform.material.color = newColor;
-
+            for (int i = 0; i < material_topPlatform.Length; i++)
+            {
+                material_topPlatform[i].material.color = newColor;
+            }
         }
         else
         {
             Color newColor = new Color(1, 1, 1, 1); //change color to white
-            material_topPlatform.material.color = newColor;
+            for (int i = 0; i < material_topPlatform.Length; i++)
+            {
+                material_topPlatform[i].material.color = newColor;
+            }
         }
     }
 }
