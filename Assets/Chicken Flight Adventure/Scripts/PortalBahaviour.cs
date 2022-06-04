@@ -6,7 +6,7 @@ public class PortalBahaviour : MonoBehaviour
 {
     [SerializeField] private Transform targetLocationTransform;
     [SerializeField] private GameObject player;
-    [SerializeField] private float timeToWait_OnTeleport;
+    [SerializeField] private float timeToWait_OnTeleport = 2f;
     private float alarm;
     private bool waitOnTimer;
 
