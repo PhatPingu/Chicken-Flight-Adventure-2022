@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 public class PlayerBehaviour : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private Rigidbody rb;
+    [SerializeField] public Rigidbody rb;
     [SerializeField] private PlayerAnimationControl _playerAnimationControl;
     [SerializeField] private PlayerSoundControl _playerSoundControl;
     [SerializeField] private PlayerFootCollision _playerFootCollision;
