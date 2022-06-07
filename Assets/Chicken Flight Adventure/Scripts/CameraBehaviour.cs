@@ -8,7 +8,7 @@ public class CameraBehaviour : MonoBehaviour
     [SerializeField] private PlayerFootCollision _playerFootCollision;
     [SerializeField] private CinemachineFreeLook camera_01;
     [SerializeField] private CinemachineFreeLook camera_02;
-    [SerializeField] private float cameraNormalFieldView;
+    [SerializeField] private float cameraNormalFieldView = 80f;
 
     void Start()
     {
