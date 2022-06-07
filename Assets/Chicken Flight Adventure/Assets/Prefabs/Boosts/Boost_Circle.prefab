@@ -4886,7 +4886,7 @@ Transform:
   m_GameObject: {fileID: 4748942741067630440}
   m_LocalRotation: {x: 0, y: 0, z: 0.078459114, w: 0.99691737}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_LocalScale: {x: 6, y: 6, z: 6}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8380156465053374619}
@@ -9714,7 +9714,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boostTarget: {fileID: 6770176365967553171}
   _player: {fileID: 0}
-  _playerAnimationControl: {fileID: 0}
+  _cameraBehaviour: {fileID: 0}
+  boostForce: 12
+  yForce: 1
+  boost_Timer: 2
 --- !u!135 &6401434962909000287
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -9723,7 +9726,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4748942741067630440}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.48

@@ -6,9 +6,9 @@ using Cinemachine;
 public class CameraBehaviour : MonoBehaviour
 {
     [SerializeField] private PlayerFootCollision _playerFootCollision;
-    [SerializeField] private static CinemachineFreeLook camera_01;
-    [SerializeField] private static CinemachineFreeLook camera_02;
-    [SerializeField] private static float cameraNormalFieldView;
+    [SerializeField] private CinemachineFreeLook camera_01;
+    [SerializeField] private CinemachineFreeLook camera_02;
+    [SerializeField] private float cameraNormalFieldView;
 
     void Start()
     {
@@ -30,8 +30,8 @@ public class CameraBehaviour : MonoBehaviour
         }*/
     }
 
-    public static void ChangeZoom(bool choice, float zoomInDistance, float zoomInSpeed, float zoomOutSpeed) 
-    {                                 //float zoomInDistance = 55f, zoomInSpeed = 10f, zoomOutSpeed = 20f
+    public void ChangeZoom(bool choice, float zoomInDistance, float zoomInSpeed, float zoomOutSpeed) 
+    {                                
         if      (choice == true && camera_01.m_Lens.FieldOfView <= zoomInDistance)
         {   
             camera_01.m_Lens.FieldOfView = zoomInDistance; 

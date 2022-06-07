@@ -83,19 +83,28 @@ public class ObjectBehaviour : MonoBehaviour
         int random_top = Random.Range(0, _levelSpawnsManager.material_topPlatform.Length);
         for (int i = 0; i < material_topPlatform.Length; i++)
         {
-            material_topPlatform[i].material = _levelSpawnsManager.material_topPlatform[random_top];
+            if (material_topPlatform[i] == null) 
+                return;
+            else 
+                material_topPlatform[i].material = _levelSpawnsManager.material_topPlatform[random_top];
         }
 
         int random_bottom = Random.Range(0, _levelSpawnsManager.material_bottomPlatform.Length);
         for (int i = 0; i < material_bottomPlatform.Length; i++)
         {
-            material_bottomPlatform[i].material = _levelSpawnsManager.material_bottomPlatform[random_bottom];
+            if (material_bottomPlatform[i] == null) 
+                return;
+            else 
+                material_bottomPlatform[i].material = _levelSpawnsManager.material_bottomPlatform[random_bottom];
         }       
 
         int random_rock = Random.Range(0, _levelSpawnsManager.material_rockPlatform.Length);
         for (int i = 0; i < material_rockPlatform.Length; i++)
         {
-            material_rockPlatform[i].material = _levelSpawnsManager.material_rockPlatform[random_rock];
+            if (material_rockPlatform[i] == null) 
+                return;
+            else 
+                material_rockPlatform[i].material = _levelSpawnsManager.material_rockPlatform[random_rock];
         } 
     }
 
