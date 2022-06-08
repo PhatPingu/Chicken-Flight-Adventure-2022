@@ -4868,8 +4868,8 @@ GameObject:
   - component: {fileID: 4748942741067979394}
   - component: {fileID: 4748942741087346560}
   - component: {fileID: 4748942741087435952}
+  - component: {fileID: 6491175201459812290}
   - component: {fileID: 4665911570701221955}
-  - component: {fileID: 8679295755681964939}
   m_Layer: 0
   m_Name: Boost_Circle
   m_TagString: Untagged
@@ -4884,7 +4884,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4748942741067630440}
-  m_LocalRotation: {x: 0, y: 0, z: 0.078459114, w: 0.99691737}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 6, y: 6, z: 6}
   m_ConstrainProportionsScale: 0
@@ -4893,7 +4893,7 @@ Transform:
   - {fileID: 3825305661254738882}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 9}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!198 &4748942741087346560
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -9700,6 +9700,19 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!135 &6491175201459812290
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4748942741067630440}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.7
+  m_Center: {x: 0, y: 0, z: 0.44}
 --- !u!114 &4665911570701221955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9713,22 +9726,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boostTarget: {fileID: 6770176365967553171}
-  boostForce: 40
-  yForce: 0.5
-  boost_Timer: 1
---- !u!65 &8679295755681964939
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4748942741067630440}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.3, y: 1.2, z: 0}
-  m_Center: {x: 0, y: 0, z: 0.25}
+  boostForce: 80
+  yForce: 0.6
+  boost_Timer: 0.8
 --- !u!1 &6770176365967553171
 GameObject:
   m_ObjectHideFlags: 0
@@ -9753,7 +9753,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6770176365967553171}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -4.00008}
+  m_LocalPosition: {x: 0, y: 0, z: -4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -15,7 +15,7 @@ public class BehaviourBoost_Circle : MonoBehaviour
     private PlayerBehaviour _playerBehaviour;
     private PlayerAnimationControl _playerAnimationControl;
     
-    bool activateCameraFX; //
+    bool CameraFX_activated; //
 
     void Start()
     {
@@ -26,27 +26,39 @@ public class BehaviourBoost_Circle : MonoBehaviour
         _playerBehaviour = _player.GetComponent<PlayerBehaviour>();
     }
 
+    void Update()
+    {
+        ChangeZoom(CameraFX_activated);
+    }
+
     void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player")
         {
             Boost_ToTarget();
             Invoke("EndDash", boost_Timer);
+            CameraFX_activated = true;
         }
     }
 
     void Boost_ToTarget()
     {
         Rigidbody _rb = _player.GetComponent<PlayerBehaviour>().rb;
-        boostDirection = boostTarget.transform.position - _player.transform.position;
-        boostDirection = new Vector3(boostDirection.normalized.x, yForce, boostDirection.normalized.z);
+        boostDirection = boostTarget.transform.position - transform.position;
+        boostDirection = new Vector3(boostDirection.x, yForce, boostDirection.z);
         
-        _rb.AddForce(boostDirection * boostForce, ForceMode.Impulse);
+        _rb.AddForce(boostDirection.normalized * boostForce, ForceMode.Impulse);
         _playerAnimationControl.CallJump_Animation("GoodJump");
     }
 
     void EndDash()
     {
         _playerBehaviour.EndDash();
+        CameraFX_activated = false;
+    }
+
+    void ChangeZoom(bool choice)
+    {
+        _cameraBehaviour.ChangeZoom(choice,120,-40,-20);
     }
 }
