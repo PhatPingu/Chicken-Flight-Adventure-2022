@@ -28,7 +28,7 @@ public class BehaviourBoost_Circle : MonoBehaviour
 
     void Update()
     {
-        ChangeZoom(CameraFX_activated);
+        ZoomIn(CameraFX_activated);
     }
 
     void OnTriggerEnter(Collider other)
@@ -49,16 +49,19 @@ public class BehaviourBoost_Circle : MonoBehaviour
         
         _rb.AddForce(boostDirection.normalized * boostForce, ForceMode.Impulse);
         _playerAnimationControl.CallJump_Animation("GoodJump");
+        _playerBehaviour.i_frameActive = true;
     }
 
     void EndDash()
     {
         _playerBehaviour.EndDash();
         CameraFX_activated = false;
+        _playerBehaviour.i_frameActive = false;
     }
 
-    void ChangeZoom(bool choice)
+    void ZoomIn(bool choice)
     {
-        _cameraBehaviour.ChangeZoom(choice,120,-40,-20);
+        if(choice == true)  
+            _cameraBehaviour.ZoomIn(choice, 140f, -40f, -20f);
     }
 }

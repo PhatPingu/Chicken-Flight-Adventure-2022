@@ -109,7 +109,7 @@ public class PlayerAnimationControl : MonoBehaviour
     public void Dive_Animation(bool choice)
     {
         animator.SetBool("Dive", choice);
-        _cameraBehaviour.ChangeZoom(choice, 35f, 20f, 30f);
+        _cameraBehaviour.ZoomIn(choice, 35f, 20f, 30f);
         
         if(choice == true) 
         {
@@ -155,7 +155,6 @@ public class PlayerAnimationControl : MonoBehaviour
         else
         {   animator.SetBool("Turn Head", false);}
     }
-
 
     void CallAnimation(bool test, string animation) => animator.SetBool(animation, test);
 
