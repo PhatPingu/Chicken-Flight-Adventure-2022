@@ -28,7 +28,7 @@ public class BehaviourBoost_Circle : MonoBehaviour
 
     void Update()
     {
-        ZoomIn(CameraFX_activated);
+        ChangeZoom(CameraFX_activated);
     }
 
     void OnTriggerEnter(Collider other)
@@ -59,9 +59,9 @@ public class BehaviourBoost_Circle : MonoBehaviour
         _playerBehaviour.i_frameActive = false;
     }
 
-    void ZoomIn(bool choice)
+    void ChangeZoom(bool choice)
     {
         if(choice == true)  
-            _cameraBehaviour.ZoomIn(choice, 140f, -40f, -20f);
+            _cameraBehaviour.ChangeZoom(choice, 120f, -40f, -20f);
     }
 }
