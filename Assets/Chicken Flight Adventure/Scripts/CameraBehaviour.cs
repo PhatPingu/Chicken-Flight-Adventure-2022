@@ -8,11 +8,12 @@ public class CameraBehaviour : MonoBehaviour
     [SerializeField] private PlayerFootCollision _playerFootCollision;
     [SerializeField] private CinemachineFreeLook camera_01;
     [SerializeField] private CinemachineFreeLook camera_02;
-    private float cameraNormalFieldView;
+    [SerializeField] private float cameraNormalFieldView = 80f;
 
     void Start()
     {
-        cameraNormalFieldView = camera_01.m_Lens.FieldOfView;
+        camera_01.m_Lens.FieldOfView = cameraNormalFieldView;
+        camera_02.m_Lens.FieldOfView = cameraNormalFieldView;
     }
 
     void Update()
@@ -29,17 +30,17 @@ public class CameraBehaviour : MonoBehaviour
         }*/
     }
 
-    public void ChangeZoom(bool choice, float zoomInDistance, float zoomInSpeed, float zoomOutSpeed) 
-    {                                 //float zoomInDistance = 55f, zoomInSpeed = 10f, zoomOutSpeed = 20f
-        if      (choice == true && camera_01.m_Lens.FieldOfView <= zoomInDistance)
+    public void ChangeZoom(bool choice, float ChangeZoomDistance, float ChangeZoomSpeed, float zoomOutSpeed) 
+    {                                
+        if      (choice == true && camera_01.m_Lens.FieldOfView <= ChangeZoomDistance)
         {   
-            camera_01.m_Lens.FieldOfView = zoomInDistance; 
-            camera_02.m_Lens.FieldOfView = zoomInDistance;
+            camera_01.m_Lens.FieldOfView = ChangeZoomDistance; 
+            camera_02.m_Lens.FieldOfView = ChangeZoomDistance;
         }
-        else if (choice == true && camera_01.m_Lens.FieldOfView >= zoomInDistance)
+        else if (choice == true && camera_01.m_Lens.FieldOfView >= ChangeZoomDistance)
         {   
-            camera_01.m_Lens.FieldOfView -= zoomInSpeed * Time.deltaTime; 
-            camera_02.m_Lens.FieldOfView -= zoomInSpeed * Time.deltaTime;
+            camera_01.m_Lens.FieldOfView -= ChangeZoomSpeed * Time.deltaTime; 
+            camera_02.m_Lens.FieldOfView -= ChangeZoomSpeed * Time.deltaTime;
         }
         else if (choice == false && camera_01.m_Lens.FieldOfView >= cameraNormalFieldView)
         {   
@@ -48,6 +49,21 @@ public class CameraBehaviour : MonoBehaviour
         }
         else
         {   camera_01.m_Lens.FieldOfView += zoomOutSpeed * Time.deltaTime;
-            camera_02.m_Lens.FieldOfView += zoomOutSpeed * Time.deltaTime; }
+            camera_02.m_Lens.FieldOfView += zoomOutSpeed * Time.deltaTime; 
+        }
+    }
+
+    public void ResetCamera()
+    {
+        if(camera_01.m_Lens.FieldOfView > cameraNormalFieldView)
+        {
+            camera_01.m_Lens.FieldOfView -= 20f * Time.deltaTime;
+            camera_02.m_Lens.FieldOfView -= 20f * Time.deltaTime;
+        }
+        else if(camera_01.m_Lens.FieldOfView < cameraNormalFieldView)
+        {
+            camera_01.m_Lens.FieldOfView += 20f * Time.deltaTime;
+            camera_02.m_Lens.FieldOfView += 20f * Time.deltaTime;
+        }
     }
 }

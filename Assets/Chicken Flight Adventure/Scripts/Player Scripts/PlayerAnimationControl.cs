@@ -156,7 +156,6 @@ public class PlayerAnimationControl : MonoBehaviour
         {   animator.SetBool("Turn Head", false);}
     }
 
-
     void CallAnimation(bool test, string animation) => animator.SetBool(animation, test);
 
     void MovementAnimationController() 

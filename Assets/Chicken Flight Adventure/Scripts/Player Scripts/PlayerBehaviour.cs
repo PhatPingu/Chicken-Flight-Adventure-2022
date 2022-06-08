@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 public class PlayerBehaviour : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private Rigidbody rb;
+    [SerializeField] public Rigidbody rb;
     [SerializeField] private PlayerAnimationControl _playerAnimationControl;
     [SerializeField] private PlayerSoundControl _playerSoundControl;
     [SerializeField] private PlayerFootCollision _playerFootCollision;
@@ -49,6 +49,7 @@ public class PlayerBehaviour : MonoBehaviour
     public bool canWeakJump = true;
     
     public bool inputHover;
+    public bool i_frameActive;
 
     public bool do_EndDiveBoost;
     private bool inputDive;
@@ -73,8 +74,6 @@ public class PlayerBehaviour : MonoBehaviour
         cameraAction =      playerInput.actions["RotateCamera"];
         diveAction =        playerInput.actions["Dive"];
         forwardDashAction = playerInput.actions["ForwardDash"];
-        leftDashAction =    playerInput.actions["LeftDash"];
-        rightDashAction =   playerInput.actions["RightDash"];
     }
 
     void Start()
@@ -85,8 +84,7 @@ public class PlayerBehaviour : MonoBehaviour
         flyAction.performed += context          => PerformFlight(context);
         diveAction.performed += context         => PerformDive(context);
         forwardDashAction.performed += context  => PerformFowardDash(context);
-        leftDashAction.performed += context     => PerformLeftDash(context);
-        rightDashAction.performed += context    => PerformRightDash(context);
+        
 
         Physics.gravity = new Vector3(0, -10F, 0);
         goodJumpTimer = goodJumpTimer_Reset;
@@ -111,8 +109,12 @@ public class PlayerBehaviour : MonoBehaviour
     {
         CanFlyController();
         CanDiveController();
-        DiveController();
         SoundController();
+
+        if(!i_frameActive)
+        {
+            DiveController();
+        }
     }
     // Updates ------------------------------------------------------start
     void PlayerMovement()
@@ -279,31 +281,7 @@ public class PlayerBehaviour : MonoBehaviour
         }
     }
 
-    void PerformLeftDash(InputAction.CallbackContext context) 
-    {
-        if(canWeakJump)
-        {
-            ResetJumpTimer();
-            startDashVelocity = rb.velocity;
-            rb.AddRelativeForce(-sideDashForce , 0, 0, ForceMode.VelocityChange);
-            _playerAnimationControl.CallJump_Animation("GoodJump");
-            Invoke("EndDash", dashDuration);
-        }
-    }
-
-    void PerformRightDash(InputAction.CallbackContext context) 
-    {
-        if(canWeakJump)
-        {
-            ResetJumpTimer();
-            startDashVelocity = rb.velocity;
-            rb.AddRelativeForce(sideDashForce, 0, 0, ForceMode.VelocityChange);
-            _playerAnimationControl.CallJump_Animation("GoodJump");
-            Invoke("EndDash", dashDuration);
-        }
-    }
-
-    void EndDash()
+    public void EndDash()
     {
         rb.velocity = startDashVelocity;
     }
