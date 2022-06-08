@@ -303,7 +303,7 @@ public class PlayerBehaviour : MonoBehaviour
         }
     }
 
-    void EndDash()
+    public void EndDash()
     {
         rb.velocity = startDashVelocity;
     }
