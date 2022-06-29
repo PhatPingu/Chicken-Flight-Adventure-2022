@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 3650488309644685839}
   - component: {fileID: 3650488309643686095}
   - component: {fileID: 975608861153134996}
+  - component: {fileID: 6079824674913415552}
+  - component: {fileID: 5030992684168392652}
   m_Layer: 0
   m_Name: Tree1
   m_TagString: Untagged
@@ -27,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3650488309645684239}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 560.33, y: -0.25, z: -64.024}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -95,7 +97,35 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.328143
-  m_Height: 3.1689844
+  m_Radius: 0.81264126
+  m_Height: 13.999169
   m_Direction: 1
-  m_Center: {x: -0.017126411, y: 1.5844922, z: 0.0061415434}
+  m_Center: {x: 0.00092184544, y: 6.3544564, z: 0.0061415434}
+--- !u!136 &6079824674913415552
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3650488309645684239}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.8554573
+  m_Height: 6.936554
+  m_Direction: 2
+  m_Center: {x: 1.9451342, y: 11.854937, z: -1.6919498}
+--- !u!136 &5030992684168392652
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3650488309645684239}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 2.482666
+  m_Height: 6.721513
+  m_Direction: 0
+  m_Center: {x: -2.212356, y: 15.582134, z: -0.5988169}
