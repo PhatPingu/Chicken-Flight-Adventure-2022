@@ -18,6 +18,8 @@ public class CameraBehaviour : MonoBehaviour
 
     void Update()
     {
+        // This was used to change the boundrie of the camera from Cameramachine 
+        // (How much it can orbit in the y-axis)
         /*if(_playerFootCollision.playerIsGrounded)
         {   //This is changing the values of BottomRig (Height, Radius)
             camera_01.m_Orbits[2] = new CinemachineFreeLook.Orbit(0f,16f);
@@ -51,8 +53,8 @@ public class CameraBehaviour : MonoBehaviour
         {   camera_01.m_Lens.FieldOfView += zoomOutSpeed * Time.deltaTime;
             camera_02.m_Lens.FieldOfView += zoomOutSpeed * Time.deltaTime; 
         }
-    }
-
+    } 
+/*
     public void ResetCamera()
     {
         if(camera_01.m_Lens.FieldOfView > cameraNormalFieldView)
@@ -66,4 +68,5 @@ public class CameraBehaviour : MonoBehaviour
             camera_02.m_Lens.FieldOfView += 20f * Time.deltaTime;
         }
     }
+*/
 }

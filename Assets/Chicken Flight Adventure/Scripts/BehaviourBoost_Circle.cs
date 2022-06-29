@@ -28,7 +28,8 @@ public class BehaviourBoost_Circle : MonoBehaviour
 
     void Update()
     {
-        ChangeZoom(CameraFX_activated);
+        //This is broken
+        //ChangeZoom(CameraFX_activated);
     }
 
     void OnTriggerEnter(Collider other)
@@ -59,7 +60,7 @@ public class BehaviourBoost_Circle : MonoBehaviour
         _playerBehaviour.i_frameActive = false;
     }
 
-    void ChangeZoom(bool choice)
+    void ChangeZoom(bool choice)  //THIS CAUSES CONFLICT
     {
         if(choice == true)  
             _cameraBehaviour.ChangeZoom(choice, 120f, -40f, -20f);

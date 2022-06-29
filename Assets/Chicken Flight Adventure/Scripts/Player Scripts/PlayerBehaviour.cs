@@ -43,7 +43,7 @@ public class PlayerBehaviour : MonoBehaviour
     public float averagebestJumpForce = 600f;
     public float weakbestJumpForce = 400f;
     
-    //check if variables under shoudl be public?
+    //check if variables under should be public?
     public bool canGoodJump = true;
     public bool canAverageJump = true;
     public bool canWeakJump = true;
@@ -214,7 +214,7 @@ public class PlayerBehaviour : MonoBehaviour
         }
     }
     
-    void SoundController()
+    void SoundController()        // REFACTOR THIS
     {
         // Walking
         if(movementAction.ReadValue<Vector2>().y != 0F
