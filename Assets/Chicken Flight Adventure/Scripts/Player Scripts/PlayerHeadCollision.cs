@@ -9,8 +9,6 @@ public class PlayerHeadCollision : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        _playerAnimationControl.CallHeadCollision_Animation();
-        _playerSoundControl.PlaySFX_HeadBang();
         if(other.tag == "Platform")
         {
             Debug.Log("HeadButt");

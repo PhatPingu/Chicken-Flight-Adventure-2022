@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1236462318903048574}
   m_Layer: 0
   m_Name: rpgpp_lt_rock_small_01
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

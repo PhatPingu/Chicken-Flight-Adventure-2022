@@ -21,7 +21,7 @@ public class PlayerBoundriesCollision : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Floor")
+        if (other.tag == "Wall")
         {
             transform.parent.position = lastGoodPosition;
         }
