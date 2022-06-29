@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 5114731660363960645}
   - component: {fileID: 5862929412279755614}
   m_Layer: 0
-  m_Name: plataforma_basica
+  m_Name: Plataforma_basica
   m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

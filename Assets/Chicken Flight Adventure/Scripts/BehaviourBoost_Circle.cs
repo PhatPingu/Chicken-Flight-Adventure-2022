@@ -60,7 +60,7 @@ public class BehaviourBoost_Circle : MonoBehaviour
         _playerBehaviour.i_frameActive = false;
     }
 
-    void ChangeZoom(bool choice)  //THIS CAUSES CONFLICT
+    void ChangeZoom(bool choice)  //THIS CAUSES CONFLICT  --- Not being called atm
     {
         if(choice == true)  
             _cameraBehaviour.ChangeZoom(choice, 120f, -40f, -20f);
