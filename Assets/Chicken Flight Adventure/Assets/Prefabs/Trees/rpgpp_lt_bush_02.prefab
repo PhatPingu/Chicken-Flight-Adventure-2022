@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 3252662657845459226}
   - component: {fileID: 3556348832074583008}
   - component: {fileID: 2047999741460479813}
+  - component: {fileID: 2020579831913163876}
+  - component: {fileID: 380388084517440796}
+  - component: {fileID: 955300850651756451}
   m_Layer: 0
   m_Name: rpgpp_lt_bush_02
   m_TagString: Untagged
@@ -25,8 +28,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8664364404844677560}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 16.398315, y: 0.0018415451, z: -0.8673172}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -83,3 +86,45 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &2020579831913163876
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8664364404844677560}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 2.4451158
+  m_Height: 23.561056
+  m_Direction: 1
+  m_Center: {x: -0.018052578, y: 10.586875, z: 1.4575388}
+--- !u!136 &380388084517440796
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8664364404844677560}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 3.0931282
+  m_Height: 23.561054
+  m_Direction: 1
+  m_Center: {x: -3.8135586, y: 16.881865, z: 1.4575396}
+--- !u!136 &955300850651756451
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8664364404844677560}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 8.06123
+  m_Height: 20.442556
+  m_Direction: 0
+  m_Center: {x: -4.708434, y: 17.745884, z: 0.23771763}

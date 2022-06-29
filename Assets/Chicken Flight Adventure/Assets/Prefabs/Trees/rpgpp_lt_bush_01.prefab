@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 4823992261067081610}
   - component: {fileID: 4176636941267934625}
   - component: {fileID: 8377721107993011198}
+  - component: {fileID: 3317345964220200095}
+  - component: {fileID: 6695203688473709733}
   m_Layer: 0
   m_Name: rpgpp_lt_bush_01
   m_TagString: Untagged
@@ -25,8 +27,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7980766584720371501}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.22876, y: 0.0052397726, z: -0.64188385}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -83,3 +85,31 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &3317345964220200095
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7980766584720371501}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 4.206093
+  m_Height: 22.407486
+  m_Direction: 1
+  m_Center: {x: 0.7411356, y: 8.886467, z: -0.14406252}
+--- !u!136 &6695203688473709733
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7980766584720371501}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 4.386675
+  m_Height: 16.701035
+  m_Direction: 0
+  m_Center: {x: 0.43414497, y: 10.872889, z: -0.017653465}
