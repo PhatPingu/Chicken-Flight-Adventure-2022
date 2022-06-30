@@ -185,7 +185,7 @@ GameObject:
   - component: {fileID: 7371908575265179577}
   m_Layer: 0
   m_Name: topo
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -266,6 +266,6 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 654215155889307945, guid: 31def8f0f0c308d46b38fdb21d049a44, type: 3}

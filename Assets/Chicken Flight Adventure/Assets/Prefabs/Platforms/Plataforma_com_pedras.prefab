@@ -110,8 +110,8 @@ GameObject:
   - component: {fileID: 7221290354934798774}
   - component: {fileID: 8055411329900431599}
   m_Layer: 0
-  m_Name: pedra_4
-  m_TagString: Untagged
+  m_Name: pedra_2
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -195,7 +195,7 @@ GameObject:
   - component: {fileID: 4722971885976482659}
   m_Layer: 0
   m_Name: topo
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -292,7 +292,7 @@ GameObject:
   - component: {fileID: 4905811169760750758}
   - component: {fileID: 666036713910967532}
   m_Layer: 0
-  m_Name: pedra_2
+  m_Name: pedra_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -391,7 +391,7 @@ GameObject:
   - component: {fileID: 292519951593996425}
   m_Layer: 0
   m_Name: pedra_1
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -506,9 +506,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1337094311381838214}
-  - {fileID: 830615703234041765}
-  - {fileID: 8216635048699768916}
   - {fileID: 8102116726716060180}
+  - {fileID: 8216635048699768916}
+  - {fileID: 830615703234041765}
   - {fileID: 1011058478544398738}
   - {fileID: 612701562591962947}
   m_Father: {fileID: 0}

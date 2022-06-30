@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 4226238318722356444}
   m_Layer: 0
   m_Name: pedra_1
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 7401828528853099003}
   - component: {fileID: -1452544694609102143}
   m_Layer: 0
-  m_Name: Plataforma_fina
+  m_Name: plataforma_fina
   m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -214,8 +214,8 @@ Transform:
   - {fileID: 6279867205684091964}
   - {fileID: 1578448703505035735}
   - {fileID: 6106530804035537817}
-  - {fileID: 4801377655772078808}
   - {fileID: 3225436584809862619}
+  - {fileID: 4801377655772078808}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -272,8 +272,8 @@ GameObject:
   - component: {fileID: 7117002524847455879}
   - component: {fileID: 4105983704269566427}
   m_Layer: 0
-  m_Name: pedra_3
-  m_TagString: Untagged
+  m_Name: pedra_2
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -355,7 +355,7 @@ GameObject:
   - component: {fileID: 387323344411828651}
   - component: {fileID: 8540736643457758212}
   m_Layer: 0
-  m_Name: pedra_2
+  m_Name: pedra_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -440,7 +440,7 @@ GameObject:
   - component: {fileID: 4117976377987259614}
   m_Layer: 0
   m_Name: topo
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
