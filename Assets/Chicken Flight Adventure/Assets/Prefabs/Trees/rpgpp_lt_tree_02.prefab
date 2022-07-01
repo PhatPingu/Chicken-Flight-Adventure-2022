@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 2406860509409538932}
   - component: {fileID: 7630729353929809098}
   - component: {fileID: 8118351777902529965}
+  - component: {fileID: 6487012011093260856}
+  - component: {fileID: 4414009253616594048}
   m_Layer: 0
   m_Name: rpgpp_lt_tree_02
   m_TagString: Untagged
@@ -97,9 +99,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 1.440898
-  m_Height: 30.866379
+  m_Height: 20.862558
   m_Direction: 1
-  m_Center: {x: -0.054888725, y: 13.975113, z: 0.34175968}
+  m_Center: {x: -0.054888725, y: 8.973203, z: 0.34175968}
 --- !u!136 &7630729353929809098
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -110,10 +112,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 3.4547558
-  m_Height: 21.806255
+  m_Radius: 0.89897346
+  m_Height: 10.805711
   m_Direction: 0
-  m_Center: {x: 3.208416, y: 16.621408, z: 0.84216595}
+  m_Center: {x: 5.0992484, y: 14.268314, z: 0.84216595}
 --- !u!136 &8118351777902529965
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -124,7 +126,35 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 3.185314
-  m_Height: 20.369202
+  m_Radius: 2.1451592
+  m_Height: 18.38147
   m_Direction: 1
-  m_Center: {x: -0.53391623, y: 20.12423, z: 0.99186254}
+  m_Center: {x: 0.47860855, y: 19.130363, z: -0.5115006}
+--- !u!136 &6487012011093260856
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449236504767105444}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.6623354
+  m_Height: 4.6988535
+  m_Direction: 0
+  m_Center: {x: -2.452228, y: 11.600567, z: 1.4269263}
+--- !u!136 &4414009253616594048
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449236504767105444}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5784631
+  m_Height: 3.8672218
+  m_Direction: 1
+  m_Center: {x: -4.820999, y: 13.889978, z: 3.072979}

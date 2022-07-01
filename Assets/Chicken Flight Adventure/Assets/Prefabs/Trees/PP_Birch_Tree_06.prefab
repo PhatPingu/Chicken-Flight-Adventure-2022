@@ -95,10 +95,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.8835938
+  m_Radius: 0.854928
   m_Height: 29.288048
   m_Direction: 1
-  m_Center: {x: 0.07447356, y: 13.660997, z: -0.16531825}
+  m_Center: {x: 0.1031394, y: 13.660997, z: -0.16531825}
 --- !u!136 &7240249248736509484
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -109,7 +109,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 4.2401414
-  m_Height: 19.08635
+  m_Radius: 4.930992
+  m_Height: 15.703819
   m_Direction: 1
-  m_Center: {x: -0.45435667, y: 18.684387, z: -0.4572444}
+  m_Center: {x: -0.56901836, y: 20.375652, z: -0.28466606}

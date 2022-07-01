@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 941902618713139001}
   - component: {fileID: 1672931018250168542}
   - component: {fileID: 4111284774667319936}
+  - component: {fileID: 2082177554558864870}
   m_Layer: 0
   m_Name: TreeYellow1
   m_TagString: Untagged
@@ -114,3 +115,17 @@ CapsuleCollider:
   m_Height: 6.0405426
   m_Direction: 1
   m_Center: {x: -2.4453182, y: 15.689653, z: -0.54505634}
+--- !u!136 &2082177554558864870
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 941902618711210489}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 2.407957
+  m_Height: 5.6582465
+  m_Direction: 2
+  m_Center: {x: 2.8231592, y: 11.958815, z: -3.8413317}
