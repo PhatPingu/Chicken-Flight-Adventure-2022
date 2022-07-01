@@ -16,14 +16,21 @@ public class SoundController : MonoBehaviour
         layer01.PlayDelayed(intro.clip.length);
         layer02.PlayDelayed(intro.clip.length);
         
-        StartAllMusicVolume();
+        SetAllMusic_DefaultVolume();
     }
 
-    void StartAllMusicVolume()
+    public void SetAllMusic_DefaultVolume()
     {
-        intro.volume = 0.3f;
-        baseLayer.volume = 0.3f;
-        layer01.volume = 0f;
-        layer02.volume = 0f;
+        intro.volume        = 0.1f;
+        baseLayer.volume    = 0.1f;
+        layer01.volume      = 0f;
+        layer02.volume      = 0f;
+    }
+
+    public void SetMusicLayers_NewVolume(float vol_baselayer, float vol_layer01, float vol_layer02)
+    {
+        baseLayer.volume    = vol_baselayer;
+        layer01.volume      = vol_layer01;
+        layer02.volume      = vol_layer02;
     }
 }
