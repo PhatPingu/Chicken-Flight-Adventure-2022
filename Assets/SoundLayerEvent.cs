@@ -18,11 +18,13 @@ public class SoundLayerEvent : MonoBehaviour
         }
     }
 
-    void OnTriggerExit(Collider other)
+    // This is stopping the OnTrigger from playing.
+    // Could maybe solver by spacing out the Collision Zones
+    /*void OnTriggerExit(Collider other)  
     {
         if(other.tag == "Player")
         {
             _soundController.SetAllMusic_DefaultVolume();
         }
-    }
+    }*/
 }
