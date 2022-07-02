@@ -12,8 +12,8 @@ public class PlayerBehaviour : MonoBehaviour
     [SerializeField] private PlayerSoundControl _playerSoundControl;
     [SerializeField] private PlayerFootCollision _playerFootCollision;
 
-    [SerializeField] private float mouseSensitivity = 1f;
     [SerializeField] private float hoverForce = 10f;
+    [SerializeField] private float mouseSensitivity = 1f;
     [SerializeField] private float pushDownForce = -700f;
     
     [Header("Dive Attributes")]
@@ -38,7 +38,7 @@ public class PlayerBehaviour : MonoBehaviour
     private Vector3 startDashVelocity;
 
     public float walkSpeed = 0.15f;
-
+    
     public float bestJumpForce = 800f;
     public float averagebestJumpForce = 600f;
     public float weakbestJumpForce = 400f;
@@ -47,6 +47,7 @@ public class PlayerBehaviour : MonoBehaviour
     public bool canGoodJump = true;
     public bool canAverageJump = true;
     public bool canWeakJump = true;
+    public bool notOnWater = true;
     
     public bool inputHover;
     public bool i_frameActive;
@@ -239,13 +240,13 @@ public class PlayerBehaviour : MonoBehaviour
 
     void PerformJump(InputAction.CallbackContext context) 
     {
-        if(canGoodJump)
+        if(canGoodJump && notOnWater)
         {
             ResetJumpTimer();
             rb.AddForce(0, bestJumpForce , 0);
             _playerAnimationControl.CallJump_Animation("GoodJump");
         }
-        else if(canAverageJump)
+        else if(canAverageJump && notOnWater)
         {
             ResetJumpTimer();
             rb.AddForce(0, averagebestJumpForce , 0);
