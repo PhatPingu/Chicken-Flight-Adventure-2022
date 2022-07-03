@@ -11,6 +11,7 @@ public class PlayerBehaviour : MonoBehaviour
     [SerializeField] private PlayerAnimationControl _playerAnimationControl;
     [SerializeField] private PlayerSoundControl _playerSoundControl;
     [SerializeField] private PlayerFootCollision _playerFootCollision;
+    [SerializeField] private CapsuleCollider _hoverChikenCollider;
 
     [SerializeField] private float hoverForce = 10f;
     [SerializeField] private float mouseSensitivity = 1f;
@@ -164,8 +165,16 @@ public class PlayerBehaviour : MonoBehaviour
 
     void FlightController()
     {
-        if (inputHover) {rb.AddForce(0, hoverForce    * Time.deltaTime, 0);}
-        else            {rb.AddForce(0, pushDownForce * Time.deltaTime, 0);}
+        if (inputHover) 
+        {
+            rb.AddForce(0, hoverForce    * Time.deltaTime, 0);
+            _hoverChikenCollider.center = new Vector3(0,0.1f,0.05f);
+        }
+        else            
+        {
+            rb.AddForce(0, pushDownForce * Time.deltaTime, 0);
+            _hoverChikenCollider.center = new Vector3(0,0.234f,0.05f);
+        }
     }
 
     void VelocityContorol()
