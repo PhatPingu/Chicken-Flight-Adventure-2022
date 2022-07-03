@@ -196,7 +196,7 @@ public class ArrayCreatorTool : MonoBehaviour
     public void CreateSpawner()
     {
         SpawnDataStruct Spawner_new = ScriptableObject.CreateInstance<SpawnDataStruct>();
-        string path = "Assets/Chicken Flight Adventure/Assets/House's Prefabs/Spawners/Spawner_new.asset";
+        string path = "Assets/Chicken Flight Adventure/Assets/Prefabs da Casa/Spawners/Spawner_new.asset";
         AssetDatabase.CreateAsset(Spawner_new, path);
         EditorUtility.FocusProjectWindow();
         Selection.activeObject = Spawner_new;
