@@ -12,8 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca7a6cd20cc8151498eb23b48923c78c, type: 3}
   m_Name: Spawner_03
   m_EditorClassIdentifier: 
-  _platformObject: []
-  spawner_enabled: 0
+  _platformObject:
+  - {fileID: 2546094865762644413, guid: 3f5a829a24111694aa0d1d110564a3ea, type: 3}
+  - {fileID: 8423253673254176320, guid: 962fbc291c0cf75499089f487f298b99, type: 3}
+  - {fileID: 5499911800603698864, guid: 85249599e2dab33458787f73116ec37b, type: 3}
+  - {fileID: 4864065715318351066, guid: 483bbeabdc3142a49b1dacd3d7bc8f69, type: 3}
+  - {fileID: 4189489357371082586, guid: 7570c4f9fd7520d42bda383e1c5901ba, type: 3}
+  spawner_enabled: 1
   type_01: 0
   type_02: 1
   offsetStartLocation: {x: 0, y: 0, z: 0}
