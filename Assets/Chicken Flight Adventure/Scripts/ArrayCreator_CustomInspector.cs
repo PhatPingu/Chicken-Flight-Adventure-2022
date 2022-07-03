@@ -17,8 +17,8 @@ public class ArrayCreator_CustomInspector : Editor
 
         if(GUILayout.Button("Update Values"))
         {
-            arrayCreatorTool.UpdateCoordinates();
             arrayCreatorTool.UpdateObjectList();
+            arrayCreatorTool.UpdateCoordinates();
         }
     }  
     

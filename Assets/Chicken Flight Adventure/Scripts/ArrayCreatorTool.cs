@@ -60,8 +60,8 @@ public class ArrayCreatorTool : MonoBehaviour
         objects_Array    = new[] {object_line_01, object_line_02, object_line_03, object_line_04};
     }
 
-    public void UpdateObjectList()
-    {
+    public void UpdateObjectList() 
+    {   //Grabs info from spawer and changers Transfor Position of the Objects in the Array Creator Tool
         for (int i = 0; i < object_line_01.Length; i++)
         {
             object_line_01[i] = transform.GetChild(0).GetChild(i).gameObject;
@@ -121,11 +121,12 @@ public class ArrayCreatorTool : MonoBehaviour
     public void UpdateCoordinates()
     {
         lines_Array = new[] {line_01, line_02, line_03, line_04};
-        BlockLocationCoord[][] spawnerSource_lines_Array = new[] {
-            spawnerSource.line_01, spawnerSource.line_02, spawnerSource.line_03, spawnerSource.line_04};
 
         if(spawnerSource != null)
         {
+            BlockLocationCoord[][] spawnerSource_lines_Array = new[] {
+                spawnerSource.line_01, spawnerSource.line_02, spawnerSource.line_03, spawnerSource.line_04};
+                
             for (int k = 0; k < lines_Array.Length; k++)
             {
                 for (int i = 0; i < lines_Array[k].Length; i++)
