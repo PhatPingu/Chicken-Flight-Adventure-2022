@@ -36,7 +36,7 @@ public class PlayerBehaviour : MonoBehaviour
     [SerializeField] private float sideDashForce;
     [SerializeField] private float dashDuration;
     
-    private Vector3 startDashVelocity;
+    //private Vector3 startDashVelocity;
 
     public float walkSpeed = 0.15f;
     
@@ -80,12 +80,12 @@ public class PlayerBehaviour : MonoBehaviour
 
     void Start()
     {
-        movementAction.performed += _           => PlayerMovement();
-        cameraAction.performed += _             => PlayerRotate();
+        movementAction.performed += _           => PlayerMovementInput();
+        cameraAction.performed += _             => PlayerRotateInput();
         jumpAction.performed += context         => PerformJump(context);  
         flyAction.performed += context          => PerformFlight(context);
         diveAction.performed += context         => PerformDive(context);
-        forwardDashAction.performed += context  => PerformFowardDash(context);
+        //forwardDashAction.performed += context  => PerformFowardDash(context);
         
 
         Physics.gravity = new Vector3(0, -10F, 0);
@@ -101,10 +101,14 @@ public class PlayerBehaviour : MonoBehaviour
 
     void FixedUpdate()
     {
-        PlayerMovement();       
-        PlayerRotate();
-        FlightController();
         VelocityContorol();
+        
+        if(!i_frameActive)
+        {
+            PlayerMovementInput();       
+            PlayerRotateInput();
+            FlightInput();
+        }
     }
 
     void Update()
@@ -115,18 +119,18 @@ public class PlayerBehaviour : MonoBehaviour
 
         if(!i_frameActive)
         {
-            DiveController();
+            DiveInput();
         }
     }
     // Updates ------------------------------------------------------start
-    void PlayerMovement()
+    void PlayerMovementInput()
     {
         rb.MovePosition(transform.position 
         + (transform.forward * movementAction.ReadValue<Vector2>().y * walkSpeed) 
         + (transform.right   * movementAction.ReadValue<Vector2>().x * walkSpeed));
     }
 
-    void PlayerRotate()
+    void PlayerRotateInput()
     {
         if(playerInput.currentControlScheme == "Keyboard")
         {
@@ -163,7 +167,7 @@ public class PlayerBehaviour : MonoBehaviour
         }
     }
 
-    void FlightController()
+    void FlightInput()
     {
         if (inputHover) 
         {
@@ -192,7 +196,7 @@ public class PlayerBehaviour : MonoBehaviour
         }
     }
 
-    void DiveController()
+    void DiveInput()
     {
         if(inputDive)
         {
@@ -279,7 +283,7 @@ public class PlayerBehaviour : MonoBehaviour
         canGoodJump = false;
     }
 
-    void PerformFowardDash(InputAction.CallbackContext context) 
+    /*void PerformFowardDash(InputAction.CallbackContext context) 
     {
         if(canWeakJump)
         {
@@ -289,12 +293,12 @@ public class PlayerBehaviour : MonoBehaviour
             _playerAnimationControl.CallJump_Animation("GoodJump");
             Invoke("EndDash", dashDuration);
         }
-    }
+    }*/
 
-    public void EndDash()
+    /*public void EndDash()
     {
         rb.velocity = startDashVelocity;
-    }
+    }*/
 
     float y_StartVelocity;
     void PerformDive(InputAction.CallbackContext context)

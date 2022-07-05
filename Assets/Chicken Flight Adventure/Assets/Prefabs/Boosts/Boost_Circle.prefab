@@ -4868,7 +4868,7 @@ GameObject:
   - component: {fileID: 4748942741067979394}
   - component: {fileID: 4748942741087346560}
   - component: {fileID: 4748942741087435952}
-  - component: {fileID: 6491175201459812290}
+  - component: {fileID: 2448437089696818035}
   - component: {fileID: 4665911570701221955}
   m_Layer: 0
   m_Name: Boost_Circle
@@ -9700,7 +9700,7 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!135 &6491175201459812290
+--- !u!135 &2448437089696818035
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9725,6 +9725,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe63b60e44e016a4683ee531aae192d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisCollider: {fileID: 2448437089696818035}
   boostTarget: {fileID: 6770176365967553171}
   boostForce: 80
   yForce: 0.6

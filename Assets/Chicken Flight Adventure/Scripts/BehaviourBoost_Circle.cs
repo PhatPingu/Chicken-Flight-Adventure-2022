@@ -4,16 +4,21 @@ using UnityEngine;
 
 public class BehaviourBoost_Circle : MonoBehaviour
 {
+    [SerializeField] private Collider thisCollider;
     [SerializeField] private GameObject boostTarget;
+
     [SerializeField] private float boostForce;
     [SerializeField] private float yForce;
     [SerializeField] private float boost_Timer;
 
     private Vector3 boostDirection;
+    private Vector3 startDashVelocity;
+
     private CameraBehaviour _cameraBehaviour; //
     private GameObject _player;
     private PlayerBehaviour _playerBehaviour;
     private PlayerAnimationControl _playerAnimationControl;
+
     
     bool CameraFX_activated; //
 
@@ -29,7 +34,7 @@ public class BehaviourBoost_Circle : MonoBehaviour
     void Update()
     {
         //This is broken
-        //ChangeZoom(CameraFX_activated);
+        ChangeZoom(CameraFX_activated);
     }
 
     void OnTriggerEnter(Collider other)
@@ -44,9 +49,12 @@ public class BehaviourBoost_Circle : MonoBehaviour
 
     void Boost_ToTarget()
     {
+        startDashVelocity = _playerBehaviour.rb.velocity;
+        thisCollider.enabled = false;
+
         Rigidbody _rb = _player.GetComponent<PlayerBehaviour>().rb;
         boostDirection = boostTarget.transform.position - transform.position;
-        boostDirection = new Vector3(boostDirection.x, yForce, boostDirection.z);
+        boostDirection = new Vector3(boostDirection.x, boostDirection.y, boostDirection.z);
         
         _rb.AddForce(boostDirection.normalized * boostForce, ForceMode.Impulse);
         _playerAnimationControl.CallJump_Animation("GoodJump");
@@ -55,12 +63,14 @@ public class BehaviourBoost_Circle : MonoBehaviour
 
     void EndDash()
     {
-        _playerBehaviour.EndDash();
+        _playerBehaviour.rb.velocity = startDashVelocity;
+        thisCollider.enabled = true;
+
         CameraFX_activated = false;
         _playerBehaviour.i_frameActive = false;
     }
 
-    void ChangeZoom(bool choice)  //THIS CAUSES CONFLICT  --- Not being called atm
+    void ChangeZoom(bool choice)  
     {
         if(choice == true)  
             _cameraBehaviour.ChangeZoom(choice, 120f, -40f, -20f);
