@@ -30,6 +30,7 @@ public class ArrayCreatorTool : MonoBehaviour
     ArrayTool[][]  lines_Array;
 
     [Header("### Variation ###")]
+    [SerializeField] private float globalVariation;
     [SerializeField] private Variation[] variation_line_01;
     [SerializeField] private Variation[] variation_line_02;
     [SerializeField] private Variation[] variation_line_03;
@@ -253,4 +254,17 @@ public class ArrayCreatorTool : MonoBehaviour
         AssetDatabase.Refresh();
     }
 
+    public void SetGlobalVariation()
+    {
+        Variation[][] variation_Array = new[] {variation_line_01, variation_line_02, variation_line_03, variation_line_04};
+        
+        for (int k = 0; k < variation_Array.Length; k++)
+        {
+            for (int i = 0; i < variation_Array[k].Length; i++)
+            {
+                variation_Array[k][i].xVariation = globalVariation;
+                variation_Array[k][i].zVariation = globalVariation;
+            }
+        }
+    }
 }
