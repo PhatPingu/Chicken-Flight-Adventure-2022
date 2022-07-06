@@ -15,7 +15,7 @@ public class StarMinor_ProximityTrigger : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            _globalVolumeController.ChangeGlobalVolumeProfile(true);
+            _globalVolumeController.ChangeGlobalVolumeProfile(1);
         }
     }
 
@@ -23,7 +23,7 @@ public class StarMinor_ProximityTrigger : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            _globalVolumeController.ChangeGlobalVolumeProfile(false);
+            _globalVolumeController.ChangeGlobalVolumeProfile(2);
         }
     }
 }

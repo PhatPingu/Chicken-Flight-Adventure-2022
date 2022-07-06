@@ -10,18 +10,18 @@ public class GlobalVolumeController : MonoBehaviour
 
     void Start()
     {
-        ChangeGlobalVolumeProfile(false);
+        ChangeGlobalVolumeProfile(0);
     }
 
-    public void ChangeGlobalVolumeProfile(bool enabled)
+    public void ChangeGlobalVolumeProfile(int volumeIndex)
     {
         if (enabled)
         {
-            _globalVolume.profile = _volumeProfiles[1];
+            _globalVolume.profile = _volumeProfiles[volumeIndex];
         }
         else
         {
-            _globalVolume.profile = _volumeProfiles[0];
+            _globalVolume.profile = _volumeProfiles[volumeIndex];
         }
     }
 }

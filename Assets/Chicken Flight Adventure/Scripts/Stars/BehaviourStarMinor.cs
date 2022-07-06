@@ -78,7 +78,7 @@ public class BehaviourStarMinor : MonoBehaviour
             proximityCollider.enabled = false;
             starMesh.enabled = false;
             lineRenderer.enabled = false;
-            _globalVolumeController.ChangeGlobalVolumeProfile(false);
+            _globalVolumeController.ChangeGlobalVolumeProfile(0);
         }
     }
 
