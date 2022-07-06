@@ -9,7 +9,6 @@ public class StarMinor_Trigger : MonoBehaviour
 
     private bool lineOn;
 
-
     void Update()
     {
         if(lineOn)

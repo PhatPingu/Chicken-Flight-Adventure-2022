@@ -5,10 +5,17 @@ using UnityEngine;
 public class PortalBahaviour : MonoBehaviour
 {
     [SerializeField] private Transform targetLocationTransform;
-    [SerializeField] private GameObject player;
     [SerializeField] private float timeToWait_OnTeleport = 2f;
+    
+    private GameObject player;
+    
     private float alarm;
     private bool waitOnTimer;
+
+    void Start()
+    {
+        player = GameObject.Find("Player_Group");
+    }
 
     void Update()
     {
