@@ -171,21 +171,37 @@ public class PlayerBehaviour : MonoBehaviour
         }
     }
 
+    bool firstPush = true;
+    bool needsDelay = true;
     void HoverInput()
     {
         if (inputHover) 
         {
-            rb.AddForce(0, hoverForce    * Time.deltaTime, 0);
+            if(firstPush && needsDelay)
+            {
+                firstPush = false;
+                needsDelay = false;
+                rb.AddForce(0, forwardDashForce, 0);    
+            }
+            else
+            {
+                rb.AddForce(0, hoverForce    * Time.deltaTime, 0);
+            }
+
             _hoverChikenCollider.center = new Vector3(0,0.1f,0.05f);
             currentWalkSpeed = WalkSpeedHovering;
         }
         else            
         {
+            firstPush = true;
             rb.AddForce(0, pushDownForce * Time.deltaTime, 0);
             _hoverChikenCollider.center = new Vector3(0,0.234f,0.05f);
             currentWalkSpeed = WalkSpeed;
         }
+        
+        if(!needsDelay) Invoke("ResetDelay", 1f);
     }
+    void ResetDelay()   { needsDelay = true; }
 
     void VelocityContorol()
     {
