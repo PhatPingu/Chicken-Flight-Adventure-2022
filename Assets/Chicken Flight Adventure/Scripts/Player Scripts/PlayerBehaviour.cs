@@ -19,6 +19,7 @@ public class PlayerBehaviour : MonoBehaviour
     
     [Header("Dive Attributes")]
     [SerializeField] private float diveForce = 10f;
+    [SerializeField] private float forwardDiveForce = 400f;
     [SerializeField] private float endDiveBoostForce = 100f;
     [SerializeField] private float diveTimer;
     [SerializeField] private float diveTimer_Reset = 2f;
@@ -38,7 +39,10 @@ public class PlayerBehaviour : MonoBehaviour
     
     //private Vector3 startDashVelocity;
 
-    public float walkSpeed = 0.15f;
+    [Header("Movement Attributes")]
+    [SerializeField] private float WalkSpeed;
+    [SerializeField] private float WalkSpeedHovering;
+    public float currentWalkSpeed = 0.15f;
     
     public float bestJumpForce = 800f;
     public float averagebestJumpForce = 600f;
@@ -83,7 +87,7 @@ public class PlayerBehaviour : MonoBehaviour
         movementAction.performed += _           => PlayerMovementInput();
         cameraAction.performed += _             => PlayerRotateInput();
         jumpAction.performed += context         => PerformJump(context);  
-        flyAction.performed += context          => PerformFlight(context);
+        flyAction.performed += context          => PerformHover(context);
         diveAction.performed += context         => PerformDive(context);
         //forwardDashAction.performed += context  => PerformFowardDash(context);
         
@@ -107,7 +111,7 @@ public class PlayerBehaviour : MonoBehaviour
         {
             PlayerMovementInput();       
             PlayerRotateInput();
-            FlightInput();
+            HoverInput();
         }
     }
 
@@ -126,8 +130,8 @@ public class PlayerBehaviour : MonoBehaviour
     void PlayerMovementInput()
     {
         rb.MovePosition(transform.position 
-        + (transform.forward * movementAction.ReadValue<Vector2>().y * walkSpeed) 
-        + (transform.right   * movementAction.ReadValue<Vector2>().x * walkSpeed));
+        + (transform.forward * movementAction.ReadValue<Vector2>().y * currentWalkSpeed) 
+        + (transform.right   * movementAction.ReadValue<Vector2>().x * currentWalkSpeed));
     }
 
     void PlayerRotateInput()
@@ -167,33 +171,32 @@ public class PlayerBehaviour : MonoBehaviour
         }
     }
 
-    void FlightInput()
+    void HoverInput()
     {
         if (inputHover) 
         {
             rb.AddForce(0, hoverForce    * Time.deltaTime, 0);
             _hoverChikenCollider.center = new Vector3(0,0.1f,0.05f);
+            currentWalkSpeed = WalkSpeedHovering;
         }
         else            
         {
             rb.AddForce(0, pushDownForce * Time.deltaTime, 0);
             _hoverChikenCollider.center = new Vector3(0,0.234f,0.05f);
+            currentWalkSpeed = WalkSpeed;
         }
     }
 
     void VelocityContorol()
     {
-        if(rb.velocity.y > 15f)  {rb.velocity = new Vector3(0,14.9f,0);}
-        if(rb.velocity.y < -50f) {rb.velocity = new Vector3(0, -50f,0);}
+        if (rb.velocity.y > 15f)    { rb.velocity = new Vector3(0,14.9f,0); }
+        if (rb.velocity.y < -50f)   { rb.velocity = new Vector3(0, -50f,0); }
     }
     
     void CanDiveController()  
     {    
         diveTimer -= Time.deltaTime;
-        if (diveTimer <= 0)
-        {
-            do_EndDiveBoost = true;
-        }
+        if (diveTimer <= 0)         { do_EndDiveBoost = true; }
     }
 
     void DiveInput()
@@ -201,7 +204,8 @@ public class PlayerBehaviour : MonoBehaviour
         if(inputDive)
         {
             _playerAnimationControl.Dive_Animation(true);
-            rb.velocity = new Vector3(0f, -diveForce, 0f);        
+            rb.velocity = new Vector3(0f, -diveForce, 0f);
+            rb.AddRelativeForce(0, 0, forwardDiveForce);  
             isDiving = true;
         } 
         else
@@ -245,7 +249,7 @@ public class PlayerBehaviour : MonoBehaviour
     }
     // Updates -------------------------------------------------------end
     
-    void PerformFlight(InputAction.CallbackContext context)
+    void PerformHover(InputAction.CallbackContext context)
     {
         if(!inputHover)     {inputHover = true;   } //Turn on Flight
         else                {inputHover = false;  } //Turn off Flight

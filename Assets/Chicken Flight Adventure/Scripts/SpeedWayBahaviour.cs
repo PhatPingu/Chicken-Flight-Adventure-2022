@@ -19,7 +19,7 @@ public class SpeedWayBahaviour : MonoBehaviour
         Debug.Log("Collision");
         if(other.gameObject == _player)
         {
-            _playerBehaviour.walkSpeed = walkSpeedMultiplier * _playerBehaviour.walkSpeed;
+            _playerBehaviour.currentWalkSpeed = walkSpeedMultiplier * _playerBehaviour.currentWalkSpeed;
         }
     }
 
