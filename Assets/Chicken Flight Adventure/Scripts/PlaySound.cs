@@ -4,5 +4,13 @@ using UnityEngine;
 
 public class PlaySound : MonoBehaviour
 {
-    [SerializeField] AudioSource audioSource;
+    [SerializeField] SoundController _soundController;
+    
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Player")
+        {
+            _soundController.StartAllMusicLayers();
+        }
+    }
 }

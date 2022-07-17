@@ -1,0 +1,215 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca7a6cd20cc8151498eb23b48923c78c, type: 3}
+  m_Name: Spawner_04
+  m_EditorClassIdentifier: 
+  _platformObject: []
+  spawner_enabled: 0
+  type_01: 0
+  type_02: 1
+  offsetStartLocation: {x: 0, y: 0, z: 0}
+  line_01:
+  - xPosMin: -309.5
+    xPosMax: -289.5
+    yPos: 257.4
+    yPosOffset: 0
+    zPosMin: 198.7
+    zPosMax: 218.7
+  - xPosMin: -302.4442
+    xPosMax: -282.4442
+    yPos: 259.4
+    yPosOffset: 0
+    zPosMin: 181.78061
+    zPosMax: 201.78061
+  - xPosMin: -308.73798
+    xPosMax: -288.73798
+    yPos: 261.4
+    yPosOffset: 0
+    zPosMin: 173.08437
+    zPosMax: 193.08437
+  - xPosMin: -303.57498
+    xPosMax: -283.57498
+    yPos: 263.4
+    yPosOffset: 0
+    zPosMin: 165.52936
+    zPosMax: 185.52936
+  - xPosMin: -307.4842
+    xPosMax: -287.4842
+    yPos: 265.4
+    yPosOffset: 0
+    zPosMin: 154.38599
+    zPosMax: 174.38599
+  - xPosMin: -311.61914
+    xPosMax: -291.61914
+    yPos: 267.4
+    yPosOffset: 0
+    zPosMin: 144.76602
+    zPosMax: 164.76602
+  - xPosMin: -315.38992
+    xPosMax: -295.38992
+    yPos: 269.4
+    yPosOffset: 0
+    zPosMin: 136.0997
+    zPosMax: 156.0997
+  - xPosMin: -324.80005
+    xPosMax: -304.80005
+    yPos: 271.4
+    yPosOffset: 0
+    zPosMin: 124.55585
+    zPosMax: 144.55585
+  line_02:
+  - xPosMin: -327.76825
+    xPosMax: -307.76825
+    yPos: 257.4
+    yPosOffset: 0
+    zPosMin: 107.04352
+    zPosMax: 127.04352
+  - xPosMin: -341.86874
+    xPosMax: -321.86874
+    yPos: 259.4
+    yPosOffset: 0
+    zPosMin: 106.064255
+    zPosMax: 126.064255
+  - xPosMin: -355.0209
+    xPosMax: -335.0209
+    yPos: 261.4
+    yPosOffset: 0
+    zPosMin: 104.93303
+    zPosMax: 124.93303
+  - xPosMin: -368.17285
+    xPosMax: -348.17285
+    yPos: 263.4
+    yPosOffset: 0
+    zPosMin: 103.80156
+    zPosMax: 123.80156
+  - xPosMin: -380.55023
+    xPosMax: -360.55023
+    yPos: 265.4
+    yPosOffset: 0
+    zPosMin: 104.04855
+    zPosMax: 124.04855
+  - xPosMin: -392.5617
+    xPosMax: -372.5617
+    yPos: 267.4
+    yPosOffset: 0
+    zPosMin: 104.19005
+    zPosMax: 124.19005
+  - xPosMin: -394.97067
+    xPosMax: -374.97067
+    yPos: 269.4
+    yPosOffset: 0
+    zPosMin: 113.244156
+    zPosMax: 133.24416
+  - xPosMin: -395.49875
+    xPosMax: -375.49875
+    yPos: 271.4
+    yPosOffset: 0
+    zPosMin: 124.24295
+    zPosMax: 144.24295
+  line_03:
+  - xPosMin: -414.1841
+    xPosMax: -394.1841
+    yPos: 257.4
+    yPosOffset: 0
+    zPosMin: 146.03822
+    zPosMax: 166.03822
+  - xPosMin: -410.23398
+    xPosMax: -390.23398
+    yPos: 259.4
+    yPosOffset: 0
+    zPosMin: 160.47437
+    zPosMax: 180.47437
+  - xPosMin: -412.9818
+    xPosMax: -392.9818
+    yPos: 261.4
+    yPosOffset: 0
+    zPosMin: 172.19847
+    zPosMax: 192.19847
+  - xPosMin: -417.70807
+    xPosMax: -397.70807
+    yPos: 263.4
+    yPosOffset: 0
+    zPosMin: 183.6295
+    zPosMax: 203.6295
+  - xPosMin: -426.02402
+    xPosMax: -406.02402
+    yPos: 265.4
+    yPosOffset: 0
+    zPosMin: 196.82428
+    zPosMax: 216.82428
+  - xPosMin: -434.70856
+    xPosMax: -414.70856
+    yPos: 267.4
+    yPosOffset: 0
+    zPosMin: 195.97287
+    zPosMax: 215.97287
+  - xPosMin: -438.01697
+    xPosMax: -418.01697
+    yPos: 269.4
+    yPosOffset: 0
+    zPosMin: 188.96214
+    zPosMax: 208.96214
+  - xPosMin: -441.65506
+    xPosMax: -421.65506
+    yPos: 271.4
+    yPosOffset: 0
+    zPosMin: 181.44777
+    zPosMax: 201.44777
+  line_04:
+  - xPosMin: -460.1
+    xPosMax: -440.1
+    yPos: 255.85739
+    yPosOffset: 0
+    zPosMin: 198.8
+    zPosMax: 218.8
+  - xPosMin: -470.5621
+    xPosMax: -450.5621
+    yPos: 257.8574
+    yPosOffset: 0
+    zPosMin: 198.07146
+    zPosMax: 218.07146
+  - xPosMin: -482.84256
+    xPosMax: -462.84256
+    yPos: 259.8574
+    yPosOffset: 0
+    zPosMin: 207.89645
+    zPosMax: 227.89645
+  - xPosMin: -494.7796
+    xPosMax: -474.7796
+    yPos: 264.7726
+    yPosOffset: 0
+    zPosMin: 219.55472
+    zPosMax: 239.55472
+  - xPosMin: -503.31116
+    xPosMax: -483.31116
+    yPos: 271.2927
+    yPosOffset: 0
+    zPosMin: 230.3119
+    zPosMax: 250.3119
+  - xPosMin: -509.2586
+    xPosMax: -489.2586
+    yPos: 280.27786
+    yPosOffset: 0
+    zPosMin: 240.57152
+    zPosMax: 260.57153
+  - xPosMin: -497.67615
+    xPosMax: -477.67615
+    yPos: 289.443
+    yPosOffset: 0
+    zPosMin: 239.23169
+    zPosMax: 259.2317
+  - xPosMin: -468.93222
+    xPosMax: -448.93222
+    yPos: 291.94302
+    yPosOffset: 0
+    zPosMin: 244.78012
+    zPosMax: 264.78012

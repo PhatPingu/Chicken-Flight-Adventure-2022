@@ -12,12 +12,14 @@ GameObject:
   - component: {fileID: 3939728831752620779}
   - component: {fileID: 3939728831751620651}
   - component: {fileID: 7709724270631525286}
+  - component: {fileID: 8266240171969406784}
+  - component: {fileID: 8025021448998826638}
   m_Layer: 0
   m_Name: TreePink1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3939728831749720779
 Transform:
@@ -27,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3939728831749363435}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 550.19165, y: -0.00000047683716, z: -65.049736}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -95,7 +97,35 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.328143
-  m_Height: 3.1689844
+  m_Radius: 0.9911909
+  m_Height: 17.325954
   m_Direction: 1
-  m_Center: {x: -0.017126411, y: 1.5844922, z: 0.0061415434}
+  m_Center: {x: -0.035046577, y: 7.802807, z: 0.041981936}
+--- !u!136 &8266240171969406784
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3939728831749363435}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 2.5543466
+  m_Height: 6.0405426
+  m_Direction: 1
+  m_Center: {x: -2.4453182, y: 15.689653, z: -0.54505634}
+--- !u!136 &8025021448998826638
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3939728831749363435}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 2.407957
+  m_Height: 5.6582465
+  m_Direction: 2
+  m_Center: {x: 2.8231592, y: 11.958815, z: -3.8413317}

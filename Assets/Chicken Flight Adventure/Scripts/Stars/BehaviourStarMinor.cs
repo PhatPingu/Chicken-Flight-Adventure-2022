@@ -5,6 +5,7 @@ using UnityEngine;
 public class BehaviourStarMinor : MonoBehaviour
 {
     [SerializeField] private Collider starCollider;
+    [SerializeField] private Collider lineCollider;
     [SerializeField] private Collider proximityCollider;
     [SerializeField] private MeshRenderer starMesh;
     [SerializeField] private LineRenderer lineRenderer;
@@ -15,6 +16,7 @@ public class BehaviourStarMinor : MonoBehaviour
     private GameObject _playerCamera;
     private PlayerAnimationControl _playerAnimationControl;
     private PlayerSoundControl _playerSoundControl;
+    private GlobalVolumeController _globalVolumeController;
 
     void Start()
     {
@@ -24,13 +26,14 @@ public class BehaviourStarMinor : MonoBehaviour
         _playerCamera = GameObject.Find("Main Camera");
         _playerAnimationControl = _player.GetComponent<PlayerAnimationControl>();
         _playerSoundControl = _player.GetComponentInChildren<PlayerSoundControl>();
+        _globalVolumeController = GameObject.Find("Global Volume").GetComponent<GlobalVolumeController>();
     }
 
     public void MakeLineToPlayer()
     {
         lineRenderer.SetPosition(0, transform.position);
         lineRenderer.SetPosition(1, _playerBehaviour.transform.position);
-
+        
         UpdateLineColor();
     }
 
@@ -71,15 +74,18 @@ public class BehaviourStarMinor : MonoBehaviour
         void DisableStar()
         {
             starCollider.enabled = false;
+            lineCollider.enabled = false;
             proximityCollider.enabled = false;
             starMesh.enabled = false;
             lineRenderer.enabled = false;
+            _globalVolumeController.ChangeGlobalVolumeProfile(0);
         }
     }
 
     void EnableStar()
     {
         starCollider.enabled = true;
+        lineCollider.enabled = true;
         proximityCollider.enabled = true;
         starMesh.enabled = true;
     }

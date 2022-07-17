@@ -11,6 +11,7 @@ public class PlayerHeadCollision : MonoBehaviour
     {
         if(other.tag == "Platform")
         {
+            Debug.Log("HeadButt");
             _playerAnimationControl.CallHeadCollision_Animation();
             _playerSoundControl.PlaySFX_HeadBang();
         }

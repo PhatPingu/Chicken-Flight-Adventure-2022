@@ -11,12 +11,15 @@ GameObject:
   - component: {fileID: 7817491855585310096}
   - component: {fileID: 5170026312408265692}
   - component: {fileID: 8097940031318243640}
+  - component: {fileID: 5188250385074792130}
+  - component: {fileID: 3960784718390890883}
+  - component: {fileID: 4610733596476881613}
   m_Layer: 0
   m_Name: Tree Type4 04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &7817491855585310096
 Transform:
@@ -25,8 +28,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2633962169048226921}
-  m_LocalRotation: {x: 0.0000000218557, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.44635, y: -0, z: 8.4782295}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -83,3 +86,45 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &5188250385074792130
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2633962169048226921}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.96372414
+  m_Height: 29.544989
+  m_Direction: 1
+  m_Center: {x: 0.35145247, y: 14.047229, z: -0.08133721}
+--- !u!136 &3960784718390890883
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2633962169048226921}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.6648624
+  m_Height: 14.083885
+  m_Direction: 1
+  m_Center: {x: 0.31441736, y: 17.902245, z: -0.7417481}
+--- !u!136 &4610733596476881613
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2633962169048226921}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 2.5811493
+  m_Height: 13.359703
+  m_Direction: 1
+  m_Center: {x: -0.04359269, y: 21.56427, z: 1.1369097}

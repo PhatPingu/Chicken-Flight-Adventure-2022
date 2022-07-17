@@ -11,12 +11,16 @@ GameObject:
   - component: {fileID: 1378938796614395029}
   - component: {fileID: 1378938796611005813}
   - component: {fileID: 1378938796612120607}
+  - component: {fileID: 8611670669906799434}
+  - component: {fileID: 2693806079384039260}
+  - component: {fileID: 329320714066849393}
+  - component: {fileID: 8268165791849261274}
   m_Layer: 0
   m_Name: Tree Type4 03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1378938796614395029
 Transform:
@@ -25,8 +29,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1378938796614108063}
-  m_LocalRotation: {x: 0.0000000218557, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 555.82776, y: 0.0000009628112, z: -53.820087}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -83,3 +87,59 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &8611670669906799434
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1378938796614108063}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.7341552
+  m_Height: 21.463726
+  m_Direction: 1
+  m_Center: {x: 0.019382477, y: 9.992039, z: 0.12597752}
+--- !u!136 &2693806079384039260
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1378938796614108063}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.2999043
+  m_Height: 11.570982
+  m_Direction: 1
+  m_Center: {x: -1.7431407, y: 12.06615, z: 0.45237112}
+--- !u!136 &329320714066849393
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1378938796614108063}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 3.8892946
+  m_Height: 11.869381
+  m_Direction: 0
+  m_Center: {x: -1.5473042, y: 11.210571, z: 1.1269188}
+--- !u!136 &8268165791849261274
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1378938796614108063}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 3.6716957
+  m_Height: 10.148756
+  m_Direction: 0
+  m_Center: {x: 0.32401752, y: 17.455566, z: 0.16949654}

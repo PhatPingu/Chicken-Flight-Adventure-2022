@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &160219238
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 160219239}
+  m_Layer: 0
+  m_Name: Target
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &160219239
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 160219238}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 2.4, z: 34.36}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8504243250574330805}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8504243250574040209
 GameObject:
   m_ObjectHideFlags: 0
@@ -34,8 +65,9 @@ Transform:
   m_Children:
   - {fileID: 8504243250574308233}
   - {fileID: 8504243250574355017}
+  - {fileID: 160219239}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!199 &461361872205808195
 ParticleSystemRenderer:
@@ -134,7 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5401c0c986b696f44a2da76ffd4ac18c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetLocationTransform: {fileID: 0}
+  targetLocationTransform: {fileID: 160219239}
   player: {fileID: 0}
   timeToWait_OnTeleport: 2
 --- !u!198 &1316569871383636154

@@ -1,0 +1,217 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca7a6cd20cc8151498eb23b48923c78c, type: 3}
+  m_Name: o_Spawner_01
+  m_EditorClassIdentifier: 
+  _platformObject:
+  - {fileID: 2374185414059251132, guid: 24d23fd3f034d904da9b3be0e6c830fe, type: 3}
+  - {fileID: 382245077275695495, guid: 402c9a73807818c479f8a1fc26482e5d, type: 3}
+  spawner_enabled: 0
+  type_01: 0
+  type_02: 1
+  offsetStartLocation: {x: -782, y: 253, z: 268.8}
+  line_01:
+  - xPosMin: 10
+    xPosMax: 20
+    yPos: 0
+    yPosOffset: -5
+    zPosMin: -10
+    zPosMax: 10
+  - xPosMin: 20
+    xPosMax: 30
+    yPos: 0
+    yPosOffset: -10
+    zPosMin: -10
+    zPosMax: 10
+  - xPosMin: 30
+    xPosMax: 40
+    yPos: 0
+    yPosOffset: -15
+    zPosMin: -10
+    zPosMax: 10
+  - xPosMin: 40
+    xPosMax: 50
+    yPos: 0
+    yPosOffset: -20
+    zPosMin: -10
+    zPosMax: 10
+  - xPosMin: 50
+    xPosMax: 60
+    yPos: 0
+    yPosOffset: -25
+    zPosMin: -10
+    zPosMax: 10
+  - xPosMin: 60
+    xPosMax: 70
+    yPos: 0
+    yPosOffset: -30
+    zPosMin: -10
+    zPosMax: 10
+  - xPosMin: 70
+    xPosMax: 80
+    yPos: 0
+    yPosOffset: -35
+    zPosMin: -10
+    zPosMax: 10
+  - xPosMin: 80
+    xPosMax: 90
+    yPos: 0
+    yPosOffset: -40
+    zPosMin: -10
+    zPosMax: 10
+  line_02:
+  - xPosMin: 90
+    xPosMax: 100
+    yPos: 0
+    yPosOffset: -50
+    zPosMin: -10
+    zPosMax: 10
+  - xPosMin: 100
+    xPosMax: 110
+    yPos: 0
+    yPosOffset: -60
+    zPosMin: -10
+    zPosMax: 10
+  - xPosMin: 110
+    xPosMax: 120
+    yPos: 0
+    yPosOffset: -70
+    zPosMin: -10
+    zPosMax: 10
+  - xPosMin: 120
+    xPosMax: 130
+    yPos: 0
+    yPosOffset: -80
+    zPosMin: -10
+    zPosMax: 10
+  - xPosMin: 130
+    xPosMax: 140
+    yPos: 0
+    yPosOffset: -90
+    zPosMin: -10
+    zPosMax: 10
+  - xPosMin: 140
+    xPosMax: 150
+    yPos: 0
+    yPosOffset: -100
+    zPosMin: -10
+    zPosMax: 10
+  - xPosMin: 150
+    xPosMax: 160
+    yPos: 0
+    yPosOffset: -90
+    zPosMin: -10
+    zPosMax: 10
+  - xPosMin: 160
+    xPosMax: 170
+    yPos: 0
+    yPosOffset: -95
+    zPosMin: -10
+    zPosMax: 10
+  line_03:
+  - xPosMin: 170
+    xPosMax: 180
+    yPos: 0
+    yPosOffset: -90
+    zPosMin: -10
+    zPosMax: 10
+  - xPosMin: 180
+    xPosMax: 185
+    yPos: 0
+    yPosOffset: -85
+    zPosMin: -10
+    zPosMax: 10
+  - xPosMin: 185
+    xPosMax: 190
+    yPos: 0
+    yPosOffset: -80
+    zPosMin: -10
+    zPosMax: 10
+  - xPosMin: 190
+    xPosMax: 195
+    yPos: 0
+    yPosOffset: -75
+    zPosMin: -10
+    zPosMax: 10
+  - xPosMin: 195
+    xPosMax: 200
+    yPos: 0
+    yPosOffset: -70
+    zPosMin: -10
+    zPosMax: 10
+  - xPosMin: 200
+    xPosMax: 205
+    yPos: 0
+    yPosOffset: -65
+    zPosMin: -10
+    zPosMax: 10
+  - xPosMin: 205
+    xPosMax: 210
+    yPos: 0
+    yPosOffset: -60
+    zPosMin: -10
+    zPosMax: 10
+  - xPosMin: 210
+    xPosMax: 215
+    yPos: 0
+    yPosOffset: -55
+    zPosMin: -10
+    zPosMax: 10
+  line_04:
+  - xPosMin: 215
+    xPosMax: 230
+    yPos: 0
+    yPosOffset: -50
+    zPosMin: -10
+    zPosMax: 10
+  - xPosMin: 230
+    xPosMax: 245
+    yPos: 0
+    yPosOffset: -45
+    zPosMin: -10
+    zPosMax: 10
+  - xPosMin: 255
+    xPosMax: 240
+    yPos: 0
+    yPosOffset: -40
+    zPosMin: -10
+    zPosMax: 10
+  - xPosMin: 250
+    xPosMax: 265
+    yPos: 0
+    yPosOffset: -35
+    zPosMin: -10
+    zPosMax: 10
+  - xPosMin: 275
+    xPosMax: 260
+    yPos: 0
+    yPosOffset: -30
+    zPosMin: -10
+    zPosMax: 10
+  - xPosMin: 270
+    xPosMax: 285
+    yPos: 0
+    yPosOffset: -25
+    zPosMin: -10
+    zPosMax: 10
+  - xPosMin: 295
+    xPosMax: 280
+    yPos: 0
+    yPosOffset: -20
+    zPosMin: -10
+    zPosMax: 10
+  - xPosMin: 290
+    xPosMax: 305
+    yPos: 0
+    yPosOffset: -15
+    zPosMin: -10
+    zPosMax: 10

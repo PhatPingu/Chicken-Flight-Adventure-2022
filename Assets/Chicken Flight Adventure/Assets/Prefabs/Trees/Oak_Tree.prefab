@@ -12,12 +12,14 @@ GameObject:
   - component: {fileID: 4960673566352931422}
   - component: {fileID: 5991104020143428915}
   - component: {fileID: 4907727743307327604}
+  - component: {fileID: 2441485254285921996}
+  - component: {fileID: 4606768026981147891}
   m_Layer: 0
   m_Name: Oak_Tree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &7353612123253264279
 Transform:
@@ -27,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2409627393469216602}
   m_LocalRotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 13.007263, y: 0.009936005, z: 0.07115936}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -111,3 +113,31 @@ LODGroup:
     renderers:
     - renderer: {fileID: 5991104020143428915}
   m_Enabled: 1
+--- !u!136 &2441485254285921996
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2409627393469216602}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 3.3843935
+  m_Height: 39.16786
+  m_Direction: 1
+  m_Center: {x: -0.00000023841858, y: 16.47893, z: 1.8006443e-14}
+--- !u!136 &4606768026981147891
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2409627393469216602}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 5.81052
+  m_Height: 27.241497
+  m_Direction: 0
+  m_Center: {x: 0.5000019, y: 24.37228, z: -1.2669048}

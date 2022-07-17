@@ -1,0 +1,97 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca7a6cd20cc8151498eb23b48923c78c, type: 3}
+  m_Name: o_Spawner_00
+  m_EditorClassIdentifier: 
+  _platformObject:
+  - {fileID: 2374185414059251132, guid: 24d23fd3f034d904da9b3be0e6c830fe, type: 3}
+  - {fileID: 382245077275695495, guid: 402c9a73807818c479f8a1fc26482e5d, type: 3}
+  spawner_enabled: 1
+  type_01: 1
+  type_02: 0
+  offsetStartLocation: {x: -777.5, y: 90, z: 263.4}
+  line_01:
+  - xPosMin: -12.5
+    xPosMax: -8.5
+    yPos: 30
+    yPosOffset: 20
+    zPosMin: -12.5
+    zPosMax: -8.5
+  - xPosMin: -2
+    xPosMax: 2
+    yPos: 30
+    yPosOffset: 10
+    zPosMin: -12.5
+    zPosMax: -8.5
+  - xPosMin: 8.5
+    xPosMax: 12.5
+    yPos: 30
+    yPosOffset: 0
+    zPosMin: -12.5
+    zPosMax: -8.5
+  line_02:
+  - xPosMin: -12.5
+    xPosMax: -8.5
+    yPos: 60
+    yPosOffset: 0
+    zPosMin: -12.5
+    zPosMax: -8.5
+  - xPosMin: -12.5
+    xPosMax: -8.5
+    yPos: 60
+    yPosOffset: 10
+    zPosMin: -2
+    zPosMax: 2
+  - xPosMin: -12.5
+    xPosMax: -8.5
+    yPos: 60
+    yPosOffset: 20
+    zPosMin: 8.5
+    zPosMax: 12.5
+  line_03:
+  - xPosMin: -12.5
+    xPosMax: -8.5
+    yPos: 90
+    yPosOffset: 0
+    zPosMin: 8.5
+    zPosMax: 12.5
+  - xPosMin: -2
+    xPosMax: 2
+    yPos: 90
+    yPosOffset: 10
+    zPosMin: 8.5
+    zPosMax: 12.5
+  - xPosMin: 8.5
+    xPosMax: 12.5
+    yPos: 90
+    yPosOffset: 20
+    zPosMin: 8.5
+    zPosMax: 12.5
+  line_04:
+  - xPosMin: 8.5
+    xPosMax: 12.5
+    yPos: 120
+    yPosOffset: 0
+    zPosMin: 8.5
+    zPosMax: 12.5
+  - xPosMin: 8.5
+    xPosMax: 12.5
+    yPos: 120
+    yPosOffset: 10
+    zPosMin: -2
+    zPosMax: 2
+  - xPosMin: 8.5
+    xPosMax: 12.5
+    yPos: 120
+    yPosOffset: 20
+    zPosMin: -12.5
+    zPosMax: -8.5

@@ -11,12 +11,17 @@ GameObject:
   - component: {fileID: 5000849605008457078}
   - component: {fileID: 3059589072049114529}
   - component: {fileID: 1337942640534431033}
+  - component: {fileID: 2406860509409538932}
+  - component: {fileID: 7630729353929809098}
+  - component: {fileID: 8118351777902529965}
+  - component: {fileID: 6487012011093260856}
+  - component: {fileID: 4414009253616594048}
   m_Layer: 0
   m_Name: rpgpp_lt_tree_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &5000849605008457078
 Transform:
@@ -26,7 +31,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 449236504767105444}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 19.201538, y: 0, z: 0.08100891}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -83,3 +88,73 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &2406860509409538932
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449236504767105444}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.440898
+  m_Height: 20.862558
+  m_Direction: 1
+  m_Center: {x: -0.054888725, y: 8.973203, z: 0.34175968}
+--- !u!136 &7630729353929809098
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449236504767105444}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.89897346
+  m_Height: 10.805711
+  m_Direction: 0
+  m_Center: {x: 5.0992484, y: 14.268314, z: 0.84216595}
+--- !u!136 &8118351777902529965
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449236504767105444}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 2.1451592
+  m_Height: 18.38147
+  m_Direction: 1
+  m_Center: {x: 0.47860855, y: 19.130363, z: -0.5115006}
+--- !u!136 &6487012011093260856
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449236504767105444}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.6623354
+  m_Height: 4.6988535
+  m_Direction: 0
+  m_Center: {x: -2.452228, y: 11.600567, z: 1.4269263}
+--- !u!136 &4414009253616594048
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449236504767105444}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5784631
+  m_Height: 3.8672218
+  m_Direction: 1
+  m_Center: {x: -4.820999, y: 13.889978, z: 3.072979}
