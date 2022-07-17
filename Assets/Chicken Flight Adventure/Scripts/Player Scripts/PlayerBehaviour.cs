@@ -147,7 +147,7 @@ public class PlayerBehaviour : MonoBehaviour
             (0, cameraAction.ReadValue<Vector2>().x * mouseSensitivity * 3f, 0)));
         }
     }
-    
+
     void CanFlyController()
     {    
         goodJumpTimer -= Time.deltaTime;
@@ -246,7 +246,7 @@ public class PlayerBehaviour : MonoBehaviour
         }
     }
     
-    void SoundController()        // REFACTOR THIS
+    void SoundController()        // REFACTOR THIS?
     {
         // Walking
         if(movementAction.ReadValue<Vector2>().y != 0F
