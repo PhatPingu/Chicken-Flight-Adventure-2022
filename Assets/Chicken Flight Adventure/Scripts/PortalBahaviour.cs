@@ -14,6 +14,8 @@ public class PortalBahaviour : MonoBehaviour
 
     void Start()
     {
+        player = GameObject.Find("Player_Group");
+        mainCamera = GameObject.Find("Main Camera");
 
     }
 
@@ -24,11 +26,15 @@ public class PortalBahaviour : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
+        var cameraAction = mainCamera.GetComponent<CameraBehaviour>();
+
         if(other.gameObject.tag == "Player")
         {
             other.transform.position = targetLocationTransform.position;
             waitOnTimer = true;
-            mainCamera.GetComponent<CameraBehaviour>().SetZoomDistance();
+            
+            cameraAction.SetZoomDistance();
+            cameraAction.MoveCameraUp(true, 1f);
         }
     }
     
