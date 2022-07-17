@@ -7,6 +7,7 @@ public class LoadLevel : MonoBehaviour
     private LevelSpawnsManager _levelSpawnsManager;
     
     [SerializeField] private MeshRenderer starMesh;
+    [SerializeField] private ParticleSystem starParticleSystem;
     [SerializeField] private SphereCollider starCollider;
 
     [Tooltip("Make sure that all Spawners that were added are also added in Management.GameController")]
@@ -78,6 +79,7 @@ public class LoadLevel : MonoBehaviour
     {
         starCollider.enabled = false;
         starMesh.enabled = false;
+        starParticleSystem.Stop();
     }
 
     void ActivateLevelStars_NextLevel()

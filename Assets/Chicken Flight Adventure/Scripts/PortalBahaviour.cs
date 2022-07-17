@@ -17,6 +17,7 @@ public class PortalBahaviour : MonoBehaviour
         player = GameObject.Find("Player_Group");
         mainCamera = GameObject.Find("Main Camera");
 
+        alarm = timeToWait_OnTeleport;
     }
 
     void Update()
@@ -34,7 +35,7 @@ public class PortalBahaviour : MonoBehaviour
             waitOnTimer = true;
             
             cameraAction.SetZoomDistance();
-            cameraAction.MoveCameraUp(true, 1f);
+            cameraAction.MoveCameraUp(true, 1.5f);
         }
     }
     
