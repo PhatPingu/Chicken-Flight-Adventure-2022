@@ -14,16 +14,7 @@ public class PlayerAnimationControl : MonoBehaviour
     [SerializeField] private CameraWindEffect _cameraWindEffect;
     
     [Header("VFX References")]
-    [SerializeField] private ParticleSystem starPuff_FX;
-    [SerializeField] private ParticleSystem jump_FX;
-    [SerializeField] private ParticleSystem diveLong_FX;
-    [SerializeField] private ParticleSystem diveShort_FX01;
-    [SerializeField] private ParticleSystem diveShort_FX02;
-    [SerializeField] private ParticleSystem headCollision_FX;
-
-    [SerializeField] private ParticleSystem jumpSmoke_Good;
-    [SerializeField] private ParticleSystem jumpSmoke_Average;
-    [SerializeField] private ParticleSystem jumpSmoke_Weak;
+    [SerializeField] private VFX_Controller _VFX_Controller;
 
     [Header("Attributes")]
     [SerializeField] private float timeTo_AFK = 15f;
@@ -75,7 +66,7 @@ public class PlayerAnimationControl : MonoBehaviour
         &&   animator.GetBool("Dive") == false) 
         {
             animator.SetTrigger("AirBoost");
-            starPuff_FX.Play();
+            _VFX_Controller.starPuff_FX.Play();
         }
     }
 
@@ -84,19 +75,19 @@ public class PlayerAnimationControl : MonoBehaviour
         animator.SetTrigger("Jump");
         
         if (typeJump == "GoodJump"      )
-        {   jumpSmoke_Good.Play();      }
+        {   _VFX_Controller.jumpSmoke_Good.Play();      }
 
         if (typeJump == "AverageJump"   )
-        {   jumpSmoke_Average.Play();   }
+        {   _VFX_Controller.jumpSmoke_Average.Play();   }
         
         if (typeJump == "WeakJump"      )
-        {   jumpSmoke_Weak.Play();      }
+        {   _VFX_Controller.jumpSmoke_Weak.Play();      }
     }
 
     public void CallHeadCollision_Animation() 
     {
         animator.Play("HeadImpact");
-        headCollision_FX.Play();
+        _VFX_Controller.headCollision_FX.Play();
     }
 
     public void FallingDown_Controller() 
@@ -114,22 +105,22 @@ public class PlayerAnimationControl : MonoBehaviour
         
         if(choice == true) 
         {
-            diveShort_FX01.Play();
-            diveShort_FX02.Play();
+            _VFX_Controller.diveShort_FX01.Play();
+            _VFX_Controller.diveShort_FX02.Play();
         }
         else
         {
-            diveShort_FX01.Stop();
-            diveShort_FX02.Stop();
+            _VFX_Controller.diveShort_FX01.Stop();
+            _VFX_Controller.diveShort_FX02.Stop();
         }
 
         if(choice == true && _playerBehaviour.EndDiveBoost_enabled)
         {
-            diveLong_FX.Play();
+            _VFX_Controller.diveLong_FX.Play();
         }
         else
         {
-            diveLong_FX.Stop();
+            _VFX_Controller.diveLong_FX.Stop();
         }
     }
 
@@ -194,123 +185,5 @@ public class PlayerAnimationControl : MonoBehaviour
         CallAnimation(!isFlying && backwardInput && leftInput,  "Walk_DiagLeftBack");
         //          Diagona Walk ---------------------------------------------------end
 
-
-
-
-
-
-        /*
-        if(isFlying)
-        {   animator.SetBool("Fly", true);  } 
-        else
-        {   animator.SetBool("Fly", false); }
-
-        if(_playerBehaviour.inputHover 
-        && movementAction.ReadValue<Vector2>().y > 0
-        && movementAction.ReadValue<Vector2>().x == 0)
-        {   animator.SetBool("Fly Forward", true);  } 
-        else
-        {   animator.SetBool("Fly Forward", false); }
-        
-        if(_playerBehaviour.inputHover 
-        && movementAction.ReadValue<Vector2>().y < 0
-        && movementAction.ReadValue<Vector2>().x == 0)
-        {   animator.SetBool("Fly Back", true);     } 
-        else
-        {   animator.SetBool("Fly Back", false);    }
-
-        if(_playerBehaviour.inputHover 
-        && movementAction.ReadValue<Vector2>().x > 0
-        && movementAction.ReadValue<Vector2>().y == 0)
-        {   animator.SetBool("Fly Right", true);    } 
-        else
-        {   animator.SetBool("Fly Right", false);   }
-
-        if(_playerBehaviour.inputHover 
-        && movementAction.ReadValue<Vector2>().x < 0
-        && movementAction.ReadValue<Vector2>().y == 0)
-        {   animator.SetBool("Fly Left", true);     } 
-        else
-        {   animator.SetBool("Fly Left", false);    }
-
-        //          Diagona Flight -----------------------------------------------start
-        if(_playerBehaviour.inputHover 
-        && movementAction.ReadValue<Vector2>().y > 0
-        && movementAction.ReadValue<Vector2>().x > 0) 
-        {   animator.SetBool("Fly_DiagRightForward", true);  } 
-        else
-        {   animator.SetBool("Fly_DiagRightForward", false); }
-
-        if(_playerBehaviour.inputHover 
-        && movementAction.ReadValue<Vector2>().y > 0
-        && movementAction.ReadValue<Vector2>().x < 0) 
-        {   animator.SetBool("Fly_DiagLeftForward", true);  } 
-        else
-        {   animator.SetBool("Fly_DiagLeftForward", false); }
-
-        if(_playerBehaviour.inputHover 
-        && movementAction.ReadValue<Vector2>().y < 0
-        && movementAction.ReadValue<Vector2>().x > 0) 
-        {   animator.SetBool("Fly_DiagRightBack", true);  } 
-        else
-        {   animator.SetBool("Fly_DiagRightBack", false); }
-
-        if(_playerBehaviour.inputHover 
-        && movementAction.ReadValue<Vector2>().y < 0
-        && movementAction.ReadValue<Vector2>().x < 0) 
-        {   animator.SetBool("Fly_DiagLeftBack", true);  } 
-        else
-        {   animator.SetBool("Fly_DiagLeftBack", false); }*/
-        //          Diagona Flight -------------------------------------------------end
-        // Flight Detection --------------------------------------------------------end
-
-
-        // Walk Detection ----------------------------------------------------------end
-/*
-        if(movementAction.ReadValue<Vector2>().y > 0
-        && movementAction.ReadValue<Vector2>().x == 0)
-        {   animator.SetBool("Fly", true);  }
-
-        if(movementAction.ReadValue<Vector2>().y < 0
-        && movementAction.ReadValue<Vector2>().x == 0)
-        {   animator.SetBool("Walk Back", true);
-        }   else    {animator.SetBool("Walk Back", false);}
-
-        if(movementAction.ReadValue<Vector2>().x > 0
-        && movementAction.ReadValue<Vector2>().y == 0)
-        {   animator.SetBool("Walk Right", true);
-        }   else    {animator.SetBool("Walk Right", false);}
-
-        if(movementAction.ReadValue<Vector2>().x < 0
-        && movementAction.ReadValue<Vector2>().y == 0)
-        {   animator.SetBool("Walk Left", true); 
-        }   else    {animator.SetBool("Walk Left", false);}
-
-        //          Diagona Walk -------------------------------------------------start
-        if(movementAction.ReadValue<Vector2>().y > 0
-        && movementAction.ReadValue<Vector2>().x > 0) 
-        {   animator.SetBool("Walk_DiagRightForward", true);  } 
-        else
-        {   animator.SetBool("Walk_DiagRightForward", false); }
-
-        if(movementAction.ReadValue<Vector2>().y > 0
-        && movementAction.ReadValue<Vector2>().x < 0) 
-        {   animator.SetBool("Walk_DiagLeftForward", true);  } 
-        else
-        {   animator.SetBool("Walk_DiagLeftForward", false); }
-
-        if(movementAction.ReadValue<Vector2>().y < 0
-        && movementAction.ReadValue<Vector2>().x > 0) 
-        {   animator.SetBool("Walk_DiagRightBack", true);  } 
-        else
-        {   animator.SetBool("Walk_DiagRightBack", false); }
-
-        if(movementAction.ReadValue<Vector2>().y < 0
-        && movementAction.ReadValue<Vector2>().x < 0) 
-        {   animator.SetBool("Walk_DiagLeftBack", true);  } 
-        else
-        {   animator.SetBool("Walk_DiagLeftBack", false); }*/
-        //          Diagona Walk ---------------------------------------------------end
-        // Walk Detection ----------------------------------------------------------end
     }
 }

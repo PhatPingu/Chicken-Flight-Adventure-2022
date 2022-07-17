@@ -1,20 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PortalBahaviour : MonoBehaviour
 {
+    [SerializeField] private GameObject player;
+    [SerializeField] private GameObject mainCamera;
+
     [SerializeField] private Transform targetLocationTransform;
     [SerializeField] private float timeToWait_OnTeleport = 2f;
-    
-    private GameObject player;
+    [SerializeField] private ParticleSystem teleportCompleted;
     
     private float alarm;
     private bool waitOnTimer;
 
     void Start()
     {
-        player = GameObject.Find("Player_Group");
+
     }
 
     void Update()
@@ -28,6 +28,7 @@ public class PortalBahaviour : MonoBehaviour
         {
             other.transform.position = targetLocationTransform.position;
             waitOnTimer = true;
+            mainCamera.GetComponent<CameraBehaviour>().SetZoomDistance();
         }
     }
     
@@ -40,6 +41,7 @@ public class PortalBahaviour : MonoBehaviour
             {
                 waitOnTimer = false;
                 alarm = timeToWait_OnTeleport;
+                teleportCompleted.Play();
             }
 
             player.transform.position = targetLocationTransform.position;

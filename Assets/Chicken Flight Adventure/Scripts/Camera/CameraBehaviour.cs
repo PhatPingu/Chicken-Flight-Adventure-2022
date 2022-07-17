@@ -32,6 +32,12 @@ public class CameraBehaviour : MonoBehaviour
         }*/
     }
     
+    public void SetZoomDistance()
+    {
+        camera_01.m_Lens.FieldOfView = cameraNormalFieldView * 0.5f;
+        camera_02.m_Lens.FieldOfView = cameraNormalFieldView * 0.5f; 
+    }
+
     public void ChangeZoom(bool choice, float ChangeZoomDistance, float ChangeZoomSpeed, float ReturnZoomSpeed)
     {
         if(choice)
