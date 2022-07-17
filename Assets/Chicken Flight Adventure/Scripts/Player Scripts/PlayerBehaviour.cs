@@ -57,7 +57,7 @@ public class PlayerBehaviour : MonoBehaviour
     public bool inputHover;
     public bool i_frameActive;
 
-    public bool do_EndDiveBoost;
+    public bool EndDiveBoost_enabled;
     public bool inputDive;
     private bool isDiving;
 
@@ -210,7 +210,7 @@ public class PlayerBehaviour : MonoBehaviour
     void CanDiveController()  
     {    
         diveTimer -= Time.deltaTime;
-        if (diveTimer <= 0)         { do_EndDiveBoost = true; }
+        if (diveTimer <= 0)         { EndDiveBoost_enabled = true; }
     }
 
     void DiveInput()
@@ -229,18 +229,18 @@ public class PlayerBehaviour : MonoBehaviour
 
         if(!inputDive && isDiving)
         {
-            if(do_EndDiveBoost) 
+            if(EndDiveBoost_enabled) 
             {
                 rb.velocity = new Vector3(0f, y_StartVelocity + endDiveBoostForce, 0f); 
-                do_EndDiveBoost = false;
+                EndDiveBoost_enabled = false;
             }
             isDiving = false;
         }
         else if(!inputDive && isDiving) // WEIRD!!!! WTF is this? Does nothing? -- !!!!!!!!!!!!!!
         {
-            if(do_EndDiveBoost) 
+            if(EndDiveBoost_enabled) 
             {
-                do_EndDiveBoost = false;
+                EndDiveBoost_enabled = false;
             }
             isDiving = false;
         }
@@ -318,7 +318,7 @@ public class PlayerBehaviour : MonoBehaviour
         void Reset_EndDiveBoost()
         {
             diveTimer = diveTimer_Reset;
-            do_EndDiveBoost = false;
+            EndDiveBoost_enabled = false;
         }
     }
 

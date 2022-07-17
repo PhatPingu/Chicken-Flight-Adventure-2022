@@ -11,6 +11,7 @@ public class PlayerAnimationControl : MonoBehaviour
     [SerializeField] private PlayerBehaviour _playerBehaviour;
     [SerializeField] private Animator animator;
     [SerializeField] private CameraBehaviour _cameraBehaviour;
+    [SerializeField] private CameraWindEffect _cameraWindEffect;
     
     [Header("VFX References")]
     [SerializeField] private ParticleSystem starPuff_FX;
@@ -122,7 +123,7 @@ public class PlayerAnimationControl : MonoBehaviour
             diveShort_FX02.Stop();
         }
 
-        if(choice == true && _playerBehaviour.do_EndDiveBoost)
+        if(choice == true && _playerBehaviour.EndDiveBoost_enabled)
         {
             diveLong_FX.Play();
         }
