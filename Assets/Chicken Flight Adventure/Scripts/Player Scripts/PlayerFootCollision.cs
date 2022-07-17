@@ -10,7 +10,7 @@ public class PlayerFootCollision : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Floor" || other.gameObject.tag == "Platform")
+        if(other.tag == "Floor" || other.tag == "Platform")
         {
             _playerBehaviour.canGoodJump = true;
             _playerBehaviour.canAverageJump = true;

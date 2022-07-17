@@ -58,7 +58,7 @@ public class PlayerBehaviour : MonoBehaviour
     public bool i_frameActive;
 
     public bool do_EndDiveBoost;
-    private bool inputDive;
+    public bool inputDive;
     private bool isDiving;
 
     private PlayerInput playerInput;
@@ -89,8 +89,6 @@ public class PlayerBehaviour : MonoBehaviour
         jumpAction.performed += context         => PerformJump(context);  
         flyAction.performed += context          => PerformHover(context);
         diveAction.performed += context         => PerformDive(context);
-        //forwardDashAction.performed += context  => PerformFowardDash(context);
-        
 
         Physics.gravity = new Vector3(0, -10F, 0);
         goodJumpTimer = goodJumpTimer_Reset;
@@ -146,7 +144,7 @@ public class PlayerBehaviour : MonoBehaviour
         {
         rb.MoveRotation(rb.rotation *
         Quaternion.Euler(new Vector3
-            (0, cameraAction.ReadValue<Vector2>().x * mouseSensitivity * 2f, 0)));
+            (0, cameraAction.ReadValue<Vector2>().x * mouseSensitivity * 3f, 0)));
         }
     }
     
@@ -199,7 +197,7 @@ public class PlayerBehaviour : MonoBehaviour
             currentWalkSpeed = WalkSpeed;
         }
         
-        if(!needsDelay) Invoke("ResetDelay", 1f);
+        if(!needsDelay) Invoke("ResetDelay", 2f);
     }
     void ResetDelay()   { needsDelay = true; }
 
@@ -238,7 +236,7 @@ public class PlayerBehaviour : MonoBehaviour
             }
             isDiving = false;
         }
-        else if(!inputDive && isDiving)
+        else if(!inputDive && isDiving) // WEIRD!!!! WTF is this? Does nothing? -- !!!!!!!!!!!!!!
         {
             if(do_EndDiveBoost) 
             {
@@ -302,23 +300,6 @@ public class PlayerBehaviour : MonoBehaviour
         canAverageJump = false;
         canGoodJump = false;
     }
-
-    /*void PerformFowardDash(InputAction.CallbackContext context) 
-    {
-        if(canWeakJump)
-        {
-            ResetJumpTimer();
-            startDashVelocity = rb.velocity;
-            rb.AddRelativeForce(0, 0, forwardDashForce, ForceMode.VelocityChange);
-            _playerAnimationControl.CallJump_Animation("GoodJump");
-            Invoke("EndDash", dashDuration);
-        }
-    }*/
-
-    /*public void EndDash()
-    {
-        rb.velocity = startDashVelocity;
-    }*/
 
     float y_StartVelocity;
     void PerformDive(InputAction.CallbackContext context)
